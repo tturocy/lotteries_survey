@@ -1,11 +1,15 @@
 {% extends "global/Page.html" %}
-{% load otree static %}
+{% load otree %}
 
 {% block title %}
-    Page title
+    Enter your information
 {% endblock %}
 
 {% block content %}
+
+    Please enter the following information.
+
+    {% formfields %}
 
     {% next_button %}
 

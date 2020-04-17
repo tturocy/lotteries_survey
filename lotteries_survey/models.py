@@ -10,11 +10,10 @@ from otree.api import (
 )
 
 
-author = 'Your name here'
+author = 'Prachi Hejib'
 
-doc = """
-Your app description
-"""
+doc = "Lotteries_survey"
+"Investment decisions modelled as lottery choices"
 
 
 class Constants(BaseConstants):
@@ -32,4 +31,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    lotterychoice = models.StringField(
+        label=’which lottery would you prefer?’,
+        widget=widgets.RadioSelect
+    )

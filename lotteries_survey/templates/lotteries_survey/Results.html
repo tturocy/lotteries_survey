@@ -1,13 +1,13 @@
 {% extends "global/Page.html" %}
-{% load otree static %}
+{% load otree %}
 
 {% block title %}
-    Page title
+    Results
 {% endblock %}
 
 {% block content %}
 
+    <p> The lottery you have chosen is {{ player.lotterychoice }}.</p>
+
     {% next_button %}
 {% endblock %}
-
-
