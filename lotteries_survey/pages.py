@@ -5,7 +5,7 @@ from .models import Constants
 
 class MyPage(Page):
     form_model = 'player'
-    form_fields = [lotterychoice]
+    form_fields = ['lotterychoice']
 
 
 class Results(Page):
