@@ -33,4 +33,6 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     lotterychoice = models.StringField(
         label= "What lottery do you prefer?",
+        choices=["A", "B"],
         widget=widgets.RadioSelect)
+
