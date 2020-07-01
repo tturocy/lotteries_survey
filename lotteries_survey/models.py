@@ -19,7 +19,7 @@ doc = "Lotteries_survey"
 class Constants(BaseConstants):
     name_in_url = 'lotteries_survey'
     players_per_group = None
-    num_rounds = 1
+    num_rounds = 2
 
 
 class Subsession(BaseSubsession):
