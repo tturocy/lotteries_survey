@@ -3,13 +3,13 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class MyPage(Page):
+class DecisionPage(Page):
     form_model = 'player'
     form_fields = ['lotterychoice']
 
 
-class Results(Page):
+class ResultsPage(Page):
     pass
 
 
-page_sequence = [MyPage, Results]
+page_sequence = [DecisionPage, ResultsPage]
