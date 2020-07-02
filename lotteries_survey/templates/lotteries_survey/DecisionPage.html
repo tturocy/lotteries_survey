@@ -6,10 +6,13 @@
 {% endblock %}
 
 {% block content %}
-     Lottery A
-    <img src="{% static "lotteries_survey/plot1.jpg" %}"/>
-    Lottery B
-    <img src="{% static "lotteries_survey/plot1.jpg" %}"/>
+    <p> Lottery A
+    <img src="{% static group.lottery_image_A %}" width="50%"/>
+    </p>
+
+    <p> Lottery B
+    <img src="{% static group.lottery_image_B %}" width="50%"/>
+    </p>
 
     {% formfields %}
 
