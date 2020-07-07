@@ -29,11 +29,11 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     @property
     def lottery_image_A(self):
-        return f"lotteries_survey/lottery_{self.round_number}_A.jpg"
+        return f"lotteries_survey/lottery_p{self.round_number}.jpg"
 
     @property
     def lottery_image_B(self):
-        return f"lotteries_survey/lottery_{self.round_number}_B.jpg"
+        return f"lotteries_survey/lottery_q{self.round_number}.jpg"
 
 
 class Player(BasePlayer):
