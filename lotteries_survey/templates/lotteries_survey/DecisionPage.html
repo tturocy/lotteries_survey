@@ -6,16 +6,24 @@
 {% endblock %}
 
 {% block content %}
-    <p> Lottery A
-    <img src="{% static group.lottery_image_A %}" width="50%"/>
+    <p>
+        <button name="lotterychoice" value="Lottery A"
+                class="btn btn-primary btn-large"
+                style="background-color: goldenrod;">
+        Lottery A
+        </button>
+        <img src="{% static group.lottery_image_A %}" width="50%"/>
     </p>
 
-    <p> Lottery B
-    <img src="{% static group.lottery_image_B %}" width="50%"/>
+    <p>
+        <button name="lotterychoice" value="Lottery B"
+                class="btn btn-primary btn-large"
+                style="background-color: #7020da;">
+        Lottery B
+        </button>
+        <img src="{% static group.lottery_image_B %}" width="50%"/>
     </p>
 
-    {% formfields %}
-
-    {% next_button %}
+    {{ form.lotterychoice.errors }}
 
 {% endblock %}
