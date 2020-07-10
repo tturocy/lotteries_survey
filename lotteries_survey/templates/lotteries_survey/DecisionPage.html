@@ -6,24 +6,33 @@
 {% endblock %}
 
 {% block content %}
-    <p>
-        <button name="lotterychoice" value="Lottery A"
-                class="btn btn-primary btn-large"
-                style="background-color: goldenrod;">
-        Lottery A
-        </button>
-        <img src="{% static group.lottery_image_A %}" width="50%"/>
-    </p>
+    <div class="container">
+      <div class="row align-items-center border">
+        <div class="col-sm-2">
+            <button name="lotterychoice" value="Lottery A"
+                    class="btn btn-primary btn-large"
+                    style="background-color: goldenrod;">
+            Choose Lottery A
+            </button>
+        </div>
+        <div class="col-sm-10">
+            <img src="{% static group.lottery_image_A %}" width="100%"/>
+        </div>
+      </div>
 
-    <p>
-        <button name="lotterychoice" value="Lottery B"
-                class="btn btn-primary btn-large"
-                style="background-color: #7020da;">
-        Lottery B
-        </button>
-        <img src="{% static group.lottery_image_B %}" width="50%"/>
-    </p>
-
+      <div class="row align-items-center border">
+        <div class="col-sm-2">
+            <button name="lotterychoice" value="Lottery B"
+                    class="btn btn-primary btn-large"
+                    style="background-color: #7020da;">
+            Choose Lottery B
+            </button>
+        </div>
+        <div class="col-sm-10">
+            <img src="{% static group.lottery_image_B %}" width="100%"/>
+        </div>
+      </div>
+    </div>
     {{ form.lotterychoice.errors }}
 
 {% endblock %}
