@@ -7,6 +7,10 @@ class DecisionPage(Page):
     form_model = 'player'
     form_fields = ['lotterychoice']
 
+class DecisionPage(Page):
+    form_model = 'player'
+    form_fields = ['lotterychoice']
+
 class ResultsPage(Page):
     pass
 

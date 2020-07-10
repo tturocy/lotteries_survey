@@ -1,3 +1,4 @@
+import random
 from otree.api import (
     models,
     widgets,
@@ -36,9 +37,16 @@ class Group(BaseGroup):
         return f"lotteries_survey/lottery_q{self.round_number}.jpg"
 
 
+
 class Player(BasePlayer):
     lotterychoice = models.StringField(
         label= "Which lottery do you prefer?",
         choices=["Lottery A", " Lottery B"],
         widget=widgets.RadioSelect)
+
+    @property
+    def dieroll(self):
+        return random.randint(1,100)
+
+
 
