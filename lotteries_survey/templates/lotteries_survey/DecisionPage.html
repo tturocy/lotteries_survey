@@ -6,35 +6,23 @@
         <div class="p-2 row justify-content-center bg-secondary text-white rounded">
             <h3 class="center">Choice {{ player.round_number }} of {{ num_rounds }}</h3>
         </div>
-    </div>
 
-
-    <div class="container">
-      <div class="row align-items-center border rounded">
-        <div class="col-sm-9">
-            <img class="img-fluid" src="{% static group.lottery_image_A %}"/>
+        <div class="row justify-content-center text-muted font-weight-light font-italic">
+            Click on the lottery which you prefer.
         </div>
-        <div class="col-sm-3">
+        <div class="row align-items-center border rounded">
             <button name="lotterychoice" value="Lottery A"
                     class="btn btn-primary btn-lg"
                     style="background-color: goldenrod;">
-            Choose this lottery
-            </button>
+            <img class="img-fluid" src="{% static group.lottery_image_A %}"/>
         </div>
-      </div>
 
-      <div class="row align-items-center border rounded">
-        <div class="col-sm-9">
-            <img class="img-fluid" src="{% static group.lottery_image_B %}"/>
-        </div>
-        <div class="col-sm-3">
+        <div class="row align-items-center border rounded">
             <button name="lotterychoice" value="Lottery B"
                     class="btn btn-primary btn-lg"
                     style="background-color: #7020da;">
-            Choose this lottery
-            </button>
+            <img class="img-fluid" src="{% static group.lottery_image_B %}"/>
         </div>
-      </div>
     </div>
     {{ form.lotterychoice.errors }}
 
