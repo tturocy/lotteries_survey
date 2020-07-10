@@ -1,13 +1,16 @@
 {% extends "global/Page.html" %}
 {% load otree %}
 
-{% block title %}
-    Choice {{ player.round_number }}
-{% endblock %}
-
 {% block content %}
     <div class="container">
-      <div class="row align-items-center border">
+        <div class="p-2 row justify-content-center bg-secondary text-white rounded">
+            <h3 class="center">Choice {{ player.round_number }} of {{ num_rounds }}</h3>
+        </div>
+    </div>
+
+
+    <div class="container">
+      <div class="row align-items-center border rounded">
         <div class="col-sm-2">
             <button name="lotterychoice" value="Lottery A"
                     class="btn btn-primary btn-large"
@@ -20,7 +23,7 @@
         </div>
       </div>
 
-      <div class="row align-items-center border">
+      <div class="row align-items-center border rounded">
         <div class="col-sm-2">
             <button name="lotterychoice" value="Lottery B"
                     class="btn btn-primary btn-large"
