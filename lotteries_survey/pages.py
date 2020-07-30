@@ -30,4 +30,22 @@ class ResultsPage(Page):
         }
 
 
-page_sequence = [DecisionPage, ResultsPage]
+class SummaryPage(Page):
+    def is_displayed(self):
+        return self.round_number == Constants.num_rounds
+
+    def vars_for_template(self):
+        choices = ["p", "q"]
+        return {
+            'choices': [
+                {'image':
+                  f"lotteries_survey/lottery_{choices[p.lotterychoice]}{i+1}.jpg",
+                 'roll': p.roll,
+                 'payoff': p.payoff
+                }
+                for (i, p) in enumerate(self.player.in_all_rounds())
+            ]
+        }
+
+
+page_sequence = [DecisionPage, ResultsPage, SummaryPage]
