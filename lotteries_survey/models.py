@@ -41,7 +41,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    lotterychoice = models.StringField()
+    lotterychoice = models.IntegerField()
     # Dice rolls are determined at subsession initialisation
     roll = models.IntegerField()
 

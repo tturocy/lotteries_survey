@@ -7,11 +7,6 @@ class DecisionPage(Page):
     form_model = 'player'
     form_fields = ['lotterychoice']
 
-
-class DecisionPage(Page):
-    form_model = 'player'
-    form_fields = ['lotterychoice']
-
     def vars_for_template(self):
         return {
             'num_rounds': Constants.num_rounds,
@@ -22,7 +17,7 @@ class DecisionPage(Page):
         }
 
     def before_next_page(self):
-        if self.player.lotterychoice == "A":
+        if self.player.lotterychoice == 0:
             self.player.payoff = (
                 self.session.vars['lotteries']
                 .loc[f"p{self.player.round_number}", self.player.roll]
