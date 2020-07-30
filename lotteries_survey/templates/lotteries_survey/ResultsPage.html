@@ -7,9 +7,11 @@
 
 {% block content %}
 
-    <p> Random Number is {{player.dieroll}} </p>
-
     <p> The lottery you have chosen is {{ player.lotterychoice }}.</p>
+
+    <p> Random Number is {{ player.roll }} </p>
+
+    <p>This results in a payoff of {{ player.payoff|c }}</p>
 
     {% next_button %}
 {% include "global/Footer.html" %}

@@ -15,6 +15,12 @@ class DecisionPage(Page):
     def vars_for_template(self):
         return {'num_rounds': Constants.num_rounds}
 
+    def before_next_page(self):
+        if self.player.lotterychoice == "A":
+            self.player.payoff = (
+                self.session.vars['lotteries']
+                .loc[f"p{self.player.round_number}", self.player.roll]
+            )
 
 class ResultsPage(Page):
     pass
