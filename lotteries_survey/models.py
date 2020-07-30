@@ -45,5 +45,11 @@ class Player(BasePlayer):
     # Dice rolls are determined at subsession initialisation
     roll = models.IntegerField()
 
+    def realise_payoff(self):
+        choice = ["p", "q"][self.lotterychoice]
+        self.payoff = (
+            self.session.vars['lotteries']
+            .loc[f"{choice}{self.round_number}", self.roll]
+        )
 
 

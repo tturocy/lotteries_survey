@@ -17,14 +17,17 @@ class DecisionPage(Page):
         }
 
     def before_next_page(self):
-        if self.player.lotterychoice == 0:
-            self.player.payoff = (
-                self.session.vars['lotteries']
-                .loc[f"p{self.player.round_number}", self.player.roll]
-            )
+        self.player.realise_payoff()
+
 
 class ResultsPage(Page):
-    pass
+    def vars_for_template(self):
+        choice = ["p", "q"][self.player.lotterychoice]
+        return {
+            'num_rounds': Constants.num_rounds,
+            'image':
+                f"lotteries_survey/lottery_{choice}{self.round_number}.jpg"
+        }
 
 
 page_sequence = [DecisionPage, ResultsPage]
