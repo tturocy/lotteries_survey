@@ -37,13 +37,7 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    @property
-    def lottery_image_A(self):
-        return f"lotteries_survey/lottery_p{self.round_number}.jpg"
-
-    @property
-    def lottery_image_B(self):
-        return f"lotteries_survey/lottery_q{self.round_number}.jpg"
+    pass
 
 
 class Player(BasePlayer):
