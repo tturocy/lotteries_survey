@@ -11,19 +11,14 @@
         <div class="row justify-content-center text-muted font-weight-light font-italic">
             Click on the lottery which you prefer.
         </div>
+        {% for image in images %}
         <div class="row align-items-center border rounded">
-            <button name="lotterychoice" value="0"
+            <button name="lotterychoice" value="{{ forloop.counter0 }}"
                     class="btn btn-primary btn-lg"
                     style="background-color: #ffebb0;">
-            <img class="img-fluid" src="{% static images.0 %}"/>
+            <img class="img-fluid" src="{% static image %}"/>
         </div>
-
-        <div class="row align-items-center border rounded">
-            <button name="lotterychoice" value="1"
-                    class="btn btn-primary btn-lg"
-                    style="background-color: #ffebb0;">
-            <img class="img-fluid" src="{% static images.1 %}"/>
-        </div>
+        {% endfor %}
     </div>
     {{ form.lotterychoice.errors }}
 
