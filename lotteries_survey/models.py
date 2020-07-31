@@ -9,6 +9,7 @@ from otree.api import (
     Currency as c,
     currency_range,
 )
+import pandas as pd
 
 
 author = 'Prachi Hejib'
@@ -24,26 +25,31 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        for player in self.get_players():
+            player.roll = random.randint(1, 100)
+        if 'lotteries' not in self.session.vars:
+            self.session.vars['lotteries'] = (
+                pd.read_csv("lotteries_survey/lotteries.csv",
+                            index_col='roll')
+                .transpose()
+            )
 
 
 class Group(BaseGroup):
-    @property
-    def lottery_image_A(self):
-        return f"lotteries_survey/lottery_p{self.round_number}.jpg"
-
-    @property
-    def lottery_image_B(self):
-        return f"lotteries_survey/lottery_q{self.round_number}.jpg"
-
+    pass
 
 
 class Player(BasePlayer):
-    lotterychoice = models.StringField()
+    lotterychoice = models.IntegerField()
+    # Dice rolls are determined at subsession initialisation
+    roll = models.IntegerField()
 
-    @property
-    def dieroll(self):
-        return random.randint(1,100)
-
+    def realise_payoff(self):
+        choice = ["p", "q"][self.lotterychoice]
+        self.payoff = (
+            self.session.vars['lotteries']
+            .loc[f"{choice}{self.round_number}", self.roll]
+        )
 
 
