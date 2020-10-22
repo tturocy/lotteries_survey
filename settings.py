@@ -16,7 +16,7 @@ SESSION_CONFIGS = [
        name='lotteries_survey',
         display_name="lotteries_survey",
         num_demo_participants=1,
-        app_sequence=['lotteries_survey']
+        app_sequence=['instructions', 'lotteries_survey']
      ),
 ]
 

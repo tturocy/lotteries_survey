@@ -2,7 +2,6 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
-
 class DecisionPage(Page):
     form_model = 'player'
     form_fields = ['lotterychoice']
@@ -48,4 +47,8 @@ class SummaryPage(Page):
         }
 
 
-page_sequence = [DecisionPage, ResultsPage, SummaryPage]
+page_sequence = [
+    DecisionPage,
+    ResultsPage,
+    SummaryPage,
+]
