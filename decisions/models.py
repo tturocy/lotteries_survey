@@ -19,7 +19,7 @@ doc = "Lotteries_survey"
 
 
 class Constants(BaseConstants):
-    name_in_url = 'lotteries_survey'
+    name_in_url = 'ph1'
     players_per_group = None
     num_rounds = 2
 
@@ -30,7 +30,7 @@ class Subsession(BaseSubsession):
             player.roll = random.randint(1, 100)
         if 'lotteries' not in self.session.vars:
             self.session.vars['lotteries'] = (
-                pd.read_csv("lotteries_survey/lotteries.csv",
+                pd.read_csv("decisions/lotteries.csv",
                             index_col='roll')
                 .transpose()
             )

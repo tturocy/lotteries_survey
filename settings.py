@@ -13,10 +13,10 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
      dict(
-       name='lotteries_survey',
-        display_name="lotteries_survey",
+        name='baseline',
+        display_name="Baseline",
         num_demo_participants=1,
-        app_sequence=['instructions', 'lotteries_survey']
+        app_sequence=['instructions', 'decisions']
      ),
 ]
 
