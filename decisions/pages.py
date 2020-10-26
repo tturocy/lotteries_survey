@@ -1,6 +1,7 @@
-from otree.api import Currency as c, currency_range
-from ._builtin import Page, WaitPage
+# from otree.api import Currency as c, currency_range
+from ._builtin import Page  # , WaitPage
 from .models import Constants
+
 
 class DecisionPage(Page):
     form_model = 'player'
@@ -38,10 +39,9 @@ class SummaryPage(Page):
         return {
             'choices': [
                 {'image':
-                  f"lotteries_survey/lottery_{choices[p.lotterychoice]}{i+1}.jpg",
+                 f"lotteries_survey/lottery_{choices[p.lotterychoice]}{i+1}.jpg",
                  'roll': p.roll,
-                 'payoff': p.payoff
-                }
+                 'payoff': p.payoff}
                 for (i, p) in enumerate(self.player.in_all_rounds())
             ]
         }

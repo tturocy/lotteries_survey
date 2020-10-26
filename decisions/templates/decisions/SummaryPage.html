@@ -26,7 +26,7 @@
              {% for choice in choices %}
                  <tr>
                     <th scope="row" class="text-center align-middle">{{ forloop.counter }}</th>
-                     <td><img class="img-fluid" src="{% static choice.image %}"/></td>
+                     <td><img class="img-fluid" alt="lottery" src="{% static choice.image %}"/></td>
                     <td class="align-middle text-center">{{ choice.roll }}</td>
                     <td class="align-middle text-center">{{ choice.payoff|c }}</td>
                  </tr>
