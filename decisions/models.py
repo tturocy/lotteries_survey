@@ -1,13 +1,13 @@
 import random
 from otree.api import (
     models,
-    widgets,
+    # widgets,
     BaseConstants,
     BaseSubsession,
     BaseGroup,
     BasePlayer,
-    Currency as c,
-    currency_range,
+    # Currency as c,
+    # currency_range,
 )
 import pandas as pd
 
@@ -51,5 +51,3 @@ class Player(BasePlayer):
             self.session.vars['lotteries']
             .loc[f"{choice}{self.round_number}", self.roll]
         )
-
-
