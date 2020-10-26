@@ -13,10 +13,48 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
      dict(
-        name='baseline',
-        display_name="Baseline",
-        num_demo_participants=1,
-        app_sequence=['instructions', 'decisions']
+         name='baseline',
+         display_name="Baseline",
+         num_demo_participants=1,
+         app_sequence=[
+             'instructions',
+             'decisions',
+         ],
+         show_expected=False,
+         show_risk=False,
+     ),
+     dict(
+         name='treatment_e',
+         display_name="Treatment E",
+         num_demo_participants=1,
+         app_sequence=[
+             'instructions',
+             'decisions',
+         ],
+         show_expected=True,
+         show_risk=False,
+     ),
+     dict(
+         name='treatment_r',
+         display_name="Treatment R",
+         num_demo_participants=1,
+         app_sequence=[
+             'instructions',
+             'decisions',
+         ],
+         show_expected=False,
+         show_risk=True,
+     ),
+     dict(
+         name='treatment_er',
+         display_name="Treatment ER",
+         num_demo_participants=1,
+         app_sequence=[
+             'instructions',
+             'decisions',
+         ],
+         show_expected=True,
+         show_risk=True,
      ),
 ]
 
