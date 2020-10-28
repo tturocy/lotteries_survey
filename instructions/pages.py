@@ -3,10 +3,10 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 class InstructionsPage1(Page):
-    form_model = 'player'
+    pass
 
 class InstructionsPage2(Page):
-    form_model = 'player'
+    pass
 
 class ComprehensionPage(Page):
     form_model = 'player'

@@ -31,7 +31,10 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    answer = models.IntegerField(
-        choices=[1, 2, 3],
-        widget=widgets.RadioSelect
-    )
+
+    answer = models.IntegerField()
+
+    def answer_error_message(self, answer):
+        print('answer is', answer)
+        if answer!=3:
+            return 'Answer is incorrect, please try again'
