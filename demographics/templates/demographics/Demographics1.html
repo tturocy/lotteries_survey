@@ -1,0 +1,62 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+A bit about you... 1 of 2
+{% endblock %}
+
+{% block content %}
+
+    </p>
+    For our study, it is helpful to know a bit more about our participants.
+    Below we ask a few general questions about you and your background.
+    Remember that as with all decisions in today’s experiment, any information you choose to give is recorded anonymously,
+    and will only be used in the analysis of the data from this experiment.
+    </p>
+
+    </p>
+    1.	What gender do you identify as?
+    {% formfield player.gender %}
+
+    If other please specify:
+    {% formfield player.genderother %}
+    </p>
+
+    </p>
+    2.	How old are you?
+    {% formfield player.age %}
+    </p>
+
+    </p>
+    3.	Which country (or countries) were you a citizen of when you were born?
+    {% formfield player.countryborn %}
+    </p>
+
+    </p>
+    4.	In which country is your current permanent residence? (If you are in the UK on a student visa, this is where “home” is.)
+    {% formfield player.countrynow %}
+    </p>
+
+    </p>
+    5.	In which School are you currently enrolled? (For example, BIO, ECO, EDU…)
+    {% formfield player.department %}
+    </p>
+
+    </p>
+    6.	What type of degree course are you currently enrolled on?
+    {% formfield player.degree %}
+
+    If other please specify:
+    {% formfield player.degreeother %}
+    </p>
+
+    </p>
+    7.	How long have you been at UEA?
+    {% formfield player.timeuea %}
+    </p>
+
+
+    {% next_button %}
+
+{% include "global/Footer.html" %}
+{% endblock %}

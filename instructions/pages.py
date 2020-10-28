@@ -15,4 +15,5 @@ class ComprehensionPage(Page):
 
 page_sequence = [InstructionsPage1,
                  InstructionsPage2,
-                 ComprehensionPage]
+                 ComprehensionPage,
+                 ]

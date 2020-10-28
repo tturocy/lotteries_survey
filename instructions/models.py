@@ -1,12 +1,12 @@
 from otree.api import (
     models,
-    widgets,
+    # widgets,
     BaseConstants,
     BaseSubsession,
     BaseGroup,
     BasePlayer,
-    Currency as c,
-    currency_range,
+    # Currency as c,
+    # currency_range,
 )
 
 
@@ -35,6 +35,5 @@ class Player(BasePlayer):
     answer = models.IntegerField()
 
     def answer_error_message(self, answer):
-        print('answer is', answer)
         if answer!=3:
             return 'Answer is incorrect, please try again'

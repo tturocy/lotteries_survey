@@ -19,6 +19,7 @@ SESSION_CONFIGS = [
          app_sequence=[
              'instructions',
              'decisions',
+             'demographics',
          ],
          show_expected=False,
          show_risk=False,
@@ -30,6 +31,7 @@ SESSION_CONFIGS = [
          app_sequence=[
              'instructions',
              'decisions',
+             'demographics',
          ],
          show_expected=True,
          show_risk=False,
@@ -41,6 +43,7 @@ SESSION_CONFIGS = [
          app_sequence=[
              'instructions',
              'decisions',
+             'demographics',
          ],
          show_expected=False,
          show_risk=True,
@@ -52,6 +55,7 @@ SESSION_CONFIGS = [
          app_sequence=[
              'instructions',
              'decisions',
+             'demographics',
          ],
          show_expected=True,
          show_risk=True,
