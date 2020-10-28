@@ -11,8 +11,8 @@ class DecisionPage(Page):
         return {
             'num_rounds': Constants.num_rounds,
             'images': [
-                f"lotteries_survey/lottery_p{self.round_number}.jpg",
-                f"lotteries_survey/lottery_q{self.round_number}.jpg"
+                f"decisions/lottery_p{self.round_number}.jpg",
+                f"decisions/lottery_q{self.round_number}.jpg"
             ]
         }
 
@@ -39,7 +39,7 @@ class SummaryPage(Page):
         return {
             'choices': [
                 {'image':
-                 f"lotteries_survey/lottery_{choices[p.lotterychoice]}{i+1}.jpg",
+                 f"decisions/lottery_{choices[p.lotterychoice]}{i+1}.jpg",
                  'roll': p.roll,
                  'payoff': p.payoff}
                 for (i, p) in enumerate(self.player.in_all_rounds())
