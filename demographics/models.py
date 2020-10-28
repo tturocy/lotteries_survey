@@ -33,7 +33,6 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     gender = models.IntegerField(
-        blank=True,
         choices = [
         [1, 'Male'],
         [2, 'Female'],
@@ -49,26 +48,21 @@ class Player(BasePlayer):
 
     age = models.IntegerField(
         label="",
-        blank = True,
     )
 
     countryborn = models.StringField(
         label="",
-        blank = True,
     )
 
     countrynow = models.StringField(
         label="",
-        blank = True,
     )
 
     department = models.StringField(
         label="",
-        blank = True,
     )
 
     degree = models.IntegerField(
-        blank=True,
         choices = [
             [1, 'INTO'],
             [2, 'Bachelor'],
@@ -83,11 +77,9 @@ class Player(BasePlayer):
 
     degreeother = models.StringField(
         label="",
-        blank = True,
     )
 
 
     timeuea = models.IntegerField(
         label="",
-        blank = True,
     )

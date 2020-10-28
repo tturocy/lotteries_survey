@@ -19,11 +19,6 @@ class Demographics1(Page):
 class Demographics2(Page):
     pass
 
-
-class Results(Page):
-    pass
-
-
 page_sequence = [Demographics1,
                  Demographics2,
                  ]
