@@ -26,7 +26,7 @@ class ResultsPage(Page):
         return {
             'num_rounds': Constants.num_rounds,
             'image':
-                f"lotteries_survey/lottery_{choice}{self.round_number}.jpg"
+                f"decisions/lottery_{choice}{self.round_number}.jpg"
         }
 
 
