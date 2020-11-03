@@ -1,3 +1,5 @@
+import random
+
 from otree.api import (
     models,
     widgets,
@@ -28,8 +30,19 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    pass
+    def realise_paid_period(self):
+        print("Realising paid period")
+        for player in self.get_players():
+            player.realise_paid_period()
 
 
 class Player(BasePlayer):
-    pass
+    paid_period = models.IntegerField()
+
+    def realise_paid_period(self):
+        self.paid_period = random.randint(
+            1, len(self.participant.vars['choices'])
+        )
+        self.participant.payoff = (
+            self.participant.vars['choices'][self.paid_period].payoff
+        )

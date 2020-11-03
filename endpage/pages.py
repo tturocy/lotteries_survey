@@ -3,12 +3,20 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
+class RealisePage(WaitPage):
+    after_all_players_arrive = 'realise_paid_period'
+
+
 class SummaryPage(Page):
     pass
+
 
 class EndPage(Page):
     pass
 
-page_sequence = [SummaryPage,
-                 EndPage,
-                 ]
+
+page_sequence = [
+    RealisePage,
+    SummaryPage,
+    EndPage,
+]
