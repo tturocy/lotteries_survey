@@ -51,3 +51,6 @@ class Player(BasePlayer):
             self.session.vars['lotteries']
             .loc[f"{choice}{self.round_number}", self.roll]
         )
+        if 'choices' not in self.participant.vars:
+            self.participant.vars['choices'] = {}
+        self.participant.vars['choices'][self.round_number] = self.lotterychoice
