@@ -6,7 +6,7 @@ from otree.api import (
     BaseSubsession,
     BaseGroup,
     BasePlayer,
-    # Currency as c,
+    Currency as c,
     # currency_range,
 )
 import pandas as pd
@@ -26,8 +26,6 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        for player in self.get_players():
-            player.roll = random.randint(1, 100)
         if 'lotteries' not in self.session.vars:
             self.session.vars['lotteries'] = (
                 pd.read_csv("decisions/lotteries.csv",
@@ -40,17 +38,31 @@ class Group(BaseGroup):
     pass
 
 
+class PlayerChoice:
+    def __init__(self, lottery, roll, imagepath):
+        self.lottery = lottery
+        self.roll = roll
+        self.imagepath = imagepath
+
+    @property
+    def payoff(self):
+        return c(int(self.lottery[self.roll]))
+
+
 class Player(BasePlayer):
     lotterychoice = models.IntegerField()
     # Dice rolls are determined at subsession initialisation
     roll = models.IntegerField()
 
-    def realise_payoff(self):
+    def process_decision(self):
+        self.roll = random.randint(1, 100)
         choice = ["p", "q"][self.lotterychoice]
-        self.payoff = (
-            self.session.vars['lotteries']
-            .loc[f"{choice}{self.round_number}", self.roll]
+        lottery = (
+            self.session.vars['lotteries'].loc[f"{choice}{self.round_number}"]
         )
         if 'choices' not in self.participant.vars:
             self.participant.vars['choices'] = {}
-        self.participant.vars['choices'][self.round_number] = self.lotterychoice
+        self.participant.vars['choices'][self.round_number] = (
+            PlayerChoice(lottery, self.roll,
+                         f"decisions/lottery_{choice}{self.round_number}.jpg")
+        )

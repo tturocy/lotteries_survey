@@ -17,7 +17,7 @@ class DecisionPage(Page):
         }
 
     def before_next_page(self):
-        self.player.realise_payoff()
+        self.player.process_decision()
 
 
 class ResultsPage(Page):
@@ -30,25 +30,7 @@ class ResultsPage(Page):
         }
 
 
-class SummaryPage(Page):
-    def is_displayed(self):
-        return self.round_number == Constants.num_rounds
-
-    def vars_for_template(self):
-        choices = ["p", "q"]
-        return {
-            'choices': [
-                {'image':
-                 f"decisions/lottery_{choices[p.lotterychoice]}{i+1}.jpg",
-                 'roll': p.roll,
-                 'payoff': p.payoff}
-                for (i, p) in enumerate(self.player.in_all_rounds())
-            ]
-        }
-
-
 page_sequence = [
     DecisionPage,
     ResultsPage,
-    SummaryPage,
 ]
