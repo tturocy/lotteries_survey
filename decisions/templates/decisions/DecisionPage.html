@@ -11,14 +11,44 @@
         <div class="row justify-content-center text-muted font-weight-light font-italic">
             Click on the lottery which you prefer.
         </div>
+
+        <table class="table table-sm" width="50%">
+            <thead class="thead-light">
+                <tr>
+                    <th span="col" class="text-center">Lottery</th>
+
+                    {% if session.config.show_expected %}
+                    <th span="col" class="text-center">Average Value</th>
+                    {% endif %}
+
+                    {% if session.config.show_risk %}
+                    <th span="col" class="text-center">Riskiness</th>
+                    {% endif %}
+
+            </tr>
+            </thead>
+
+        <tbody>
         {% for image in images %}
-        <div class="row align-items-center border rounded">
-            <button name="lotterychoice" value="{{ forloop.counter0 }}"
+        <tr>
+            <td><button name="lotterychoice" value="{{ forloop.counter0 }}"
                     class="btn btn-primary btn-lg"
                     style="background-color: #ffebb0;">
-            <img class="img-fluid" alt="lottery" src="{% static image %}"/>
-        </div>
+                <img class="img-fluid" alt="lottery" src="{% static image %}"/> </button>
+            </td>
+
+            {% if session.config.show_expected %}
+            <td></td>
+            {% endif %}
+
+            {% if session.config.show_risk %}
+            <td></td>
+            {% endif %}
+
+        </tr>
         {% endfor %}
+        </tbody>
+        </table>
     </div>
     {{ form.lotterychoice.errors }}
 
