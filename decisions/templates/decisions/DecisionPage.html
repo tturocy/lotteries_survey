@@ -12,17 +12,17 @@
             Click on the lottery which you prefer.
         </div>
 
-        <table class="table table-sm" width="50%">
+        <table class="table table-sm" style="{width: 50%;}">
             <thead class="thead-light">
                 <tr>
-                    <th span="col" class="text-center">Lottery</th>
+                    <th class="text-center">Lottery</th>
 
                     {% if session.config.show_expected %}
-                    <th span="col" class="text-center">Average Value</th>
+                    <th class="text-center">Average Value</th>
                     {% endif %}
 
                     {% if session.config.show_risk %}
-                    <th span="col" class="text-center">Riskiness</th>
+                    <th class="text-center">Riskiness</th>
                     {% endif %}
 
             </tr>
