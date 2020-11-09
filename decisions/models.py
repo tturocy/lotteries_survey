@@ -34,7 +34,7 @@ class Subsession(BaseSubsession):
             )
 
 
-class MenuOption:
+class MenuItem:
     def __init__(self, imagepath, lottery):
         self.imagepath = imagepath
         self.lottery = lottery
@@ -47,13 +47,13 @@ class MenuOption:
 
 
 class Group(BaseGroup):
-    def get_options(self):
+    def get_menu(self):
         return [
-            MenuOption(
+            MenuItem(
                 f"decisions/lottery_p{self.round_number}.jpg",
                 self.session.vars['lotteries'].loc[f"p{self.round_number}"]
             ),
-            MenuOption(
+            MenuItem(
                 f"decisions/lottery_q{self.round_number}.jpg",
                 self.session.vars['lotteries'].loc[f"q{self.round_number}"]
             )
@@ -61,14 +61,13 @@ class Group(BaseGroup):
 
 
 class PlayerChoice:
-    def __init__(self, lottery, roll, imagepath):
-        self.lottery = lottery
+    def __init__(self, item, roll):
+        self.item = item
         self.roll = roll
-        self.imagepath = imagepath
 
     @property
     def payoff(self):
-        return c(int(self.lottery[self.roll]))
+        return c(int(self.item.lottery[self.roll]))
 
 
 class Player(BasePlayer):
@@ -78,13 +77,9 @@ class Player(BasePlayer):
 
     def process_decision(self):
         self.roll = random.randint(1, 100)
-        choice = ["p", "q"][self.lotterychoice]
-        lottery = (
-            self.session.vars['lotteries'].loc[f"{choice}{self.round_number}"]
-        )
+        item = self.group.get_menu()[self.lotterychoice]
         if 'choices' not in self.participant.vars:
             self.participant.vars['choices'] = {}
         self.participant.vars['choices'][self.round_number] = (
-            PlayerChoice(lottery, self.roll,
-                         f"decisions/lottery_{choice}{self.round_number}.jpg")
+            PlayerChoice(item, self.roll)
         )

@@ -13,10 +13,8 @@ class DecisionPage(Page):
 
 class ResultsPage(Page):
     def vars_for_template(self):
-        choice = ["p", "q"][self.player.lotterychoice]
         return {
-            'image':
-                f"decisions/lottery_{choice}{self.round_number}.jpg"
+            'item': self.participant.vars['choices'][self.round_number].item
         }
 
 

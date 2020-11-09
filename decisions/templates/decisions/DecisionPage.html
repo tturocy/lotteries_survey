@@ -29,20 +29,20 @@
             </thead>
 
         <tbody>
-        {% for option in group.get_options %}
+        {% for item in group.get_menu %}
         <tr>
             <td><button name="lotterychoice" value="{{ forloop.counter0 }}"
                     class="btn btn-primary btn-lg"
                     style="background-color: #ffebb0;">
-                <img class="img-fluid" alt="lottery" src="{% static option.imagepath %}"/> </button>
+                <img class="img-fluid" alt="lottery" src="{% static item.imagepath %}"/> </button>
             </td>
 
             {% if session.config.show_expected %}
-            <td style="vertical-align: middle; text-align: center;">{{ option.expected }}</td>
+            <td style="vertical-align: middle; text-align: center;">{{ item.expected }}</td>
             {% endif %}
 
             {% if session.config.show_risk %}
-            <td style="vertical-align: middle; text-align: center;">{{ option.risk }}</td>
+            <td style="vertical-align: middle; text-align: center;">{{ item.risk }}</td>
             {% endif %}
 
         </tr>
