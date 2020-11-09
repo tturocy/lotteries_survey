@@ -5,7 +5,7 @@
     <div class="container">
         <div class="p-2 row justify-content-center text-white rounded"
              style="background-color: #deb8ff;">
-            <h3 class="center">Choice {{ player.round_number }} of {{ num_rounds }}</h3>
+            <h3 class="center">Choice {{ player.round_number }} of {{ Constants.num_rounds }}</h3>
         </div>
 
         <div class="row justify-content-center text-muted font-weight-light font-italic">
@@ -29,20 +29,20 @@
             </thead>
 
         <tbody>
-        {% for image in images %}
+        {% for option in group.get_options %}
         <tr>
             <td><button name="lotterychoice" value="{{ forloop.counter0 }}"
                     class="btn btn-primary btn-lg"
                     style="background-color: #ffebb0;">
-                <img class="img-fluid" alt="lottery" src="{% static image %}"/> </button>
+                <img class="img-fluid" alt="lottery" src="{% static option.imagepath %}"/> </button>
             </td>
 
             {% if session.config.show_expected %}
-            <td></td>
+            <td style="vertical-align: middle; text-align: center;">{{ option.expected }}</td>
             {% endif %}
 
             {% if session.config.show_risk %}
-            <td></td>
+            <td style="vertical-align: middle; text-align: center;">{{ option.risk }}</td>
             {% endif %}
 
         </tr>

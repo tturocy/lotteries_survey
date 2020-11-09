@@ -34,8 +34,30 @@ class Subsession(BaseSubsession):
             )
 
 
+class MenuOption:
+    def __init__(self, imagepath, lottery):
+        self.imagepath = imagepath
+        self.lottery = lottery
+
+    def expected(self):
+        return f"{self.lottery.mean():.2f}"
+
+    def risk(self):
+        return f"{self.lottery.std():.2f}"
+
+
 class Group(BaseGroup):
-    pass
+    def get_options(self):
+        return [
+            MenuOption(
+                f"decisions/lottery_p{self.round_number}.jpg",
+                self.session.vars['lotteries'].loc[f"p{self.round_number}"]
+            ),
+            MenuOption(
+                f"decisions/lottery_q{self.round_number}.jpg",
+                self.session.vars['lotteries'].loc[f"q{self.round_number}"]
+            )
+        ]
 
 
 class PlayerChoice:
