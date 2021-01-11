@@ -2,7 +2,7 @@
 {% load otree %}
 
 {% block title %}
-Instructions 2 of 2
+Instructions 7
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,25 @@ Instructions 2 of 2
 
     <p>
     In each decision round, you will see two options, as in the example below:
+    *** show image here ***
     </p>
+
+    <p>
+    {% if session.config.show_expected %}
+    To the right of the horizontal bar showing the amounts you would earn for each possible draw is a column labelled Average Returns. You can think of this as the amount you would earn if we were to do a large number of random draws, and compute the average earnings per draw.  Remember however that your earnings from the option you choose will be determined by a single draw only.
+    {% endif %}
+
+    {% if session.config.show_risk %}
+    To the right of the horizontal bar showing the amounts you would earn for each possible draw is a column labelled Risk. This shows the standard deviation, which is a measure of how spread out the earnings are.  The earnings from an option with a higher standard deviation are more variable than the earnings from an option with a lower standard deviation.
+    {% endif %}
+
+    </p>
+
+    <p>
+    To select which of the options you would prefer, click on the
+        (WHATEVER IT IS THEY ARE CLICKING ON – DECIDE ON WHETHER WE WANT TO HAVE CLICK AND CONFIRM OR JUST CLICK).
+    </p>
+
 
     {% next_button %}
 
