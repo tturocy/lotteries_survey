@@ -6,14 +6,28 @@ class InstructionsPage1(Page):
     pass
 
 class InstructionsPage2(Page):
-    pass
-
-class ComprehensionPage(Page):
     form_model = 'player'
     form_fields = ['answer']
 
+class InstructionsPage2(Page):
+    form_model = 'player'
+    form_fields = ['answer1']
+
+class InstructionsPage3(Page):
+    form_model = 'player'
+    form_fields = ['answer2']
+
+class InstructionsPage4(Page):
+    form_model = 'player'
+    form_fields = ['answer3']
+
+class InstructionsPage5(Page):
+    form_model = 'player'
+    form_fields = ['answer4']
 
 page_sequence = [InstructionsPage1,
-                 InstructionsPage2,
-                 ComprehensionPage,
+                InstructionsPage2,
+                InstructionsPage3,
+                InstructionsPage4,
+                InstructionsPage5,
                  ]
