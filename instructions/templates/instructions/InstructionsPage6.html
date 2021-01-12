@@ -21,6 +21,9 @@ Instructions 7
     To the right of the horizontal bar showing the amounts you would earn for each possible draw is a column labelled Average Returns. You can think of this as the amount you would earn if we were to do a large number of random draws, and compute the average earnings per draw.  Remember however that your earnings from the option you choose will be determined by a single draw only.
     {% endif %}
 
+    {% if not session.config.show_expected %}
+
+
     {% if session.config.show_risk %}
     To the right of the horizontal bar showing the amounts you would earn for each possible draw is a column labelled Risk. This shows the standard deviation, which is a measure of how spread out the earnings are.  The earnings from an option with a higher standard deviation are more variable than the earnings from an option with a lower standard deviation.
     {% endif %}
