@@ -55,3 +55,9 @@ class Player(BasePlayer):
     def answer4_error_message(self, answer):
         if answer!=25:
             return 'Answer is incorrect, please try again'
+
+    answer8 = models.IntegerField()
+
+    def answer8_error_message(self, answer):
+        if answer!="all rounds are equally likely":
+            return 'Answer is incorrect, please try again'

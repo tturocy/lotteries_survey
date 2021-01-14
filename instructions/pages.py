@@ -28,10 +28,23 @@ class InstructionsPage5(Page):
 class InstructionsPage6(Page):
     pass
 
+class InstructionsPage7(Page):
+    pass
+
+class InstructionsPage8(Page):
+    form_model = 'player'
+    form_fields = ['answer8']
+
+class InstructionsPage(Page):
+    pass
+
 page_sequence = [#InstructionsPage1,
                 #InstructionsPage2,
                 #InstructionsPage3,
                 #InstructionsPage4,
                 #InstructionsPage5,
                 InstructionsPage6,
+                #InstructionsPage7,
+                #InstructionsPage8,
+                #InstructionsPage9,
                  ]
