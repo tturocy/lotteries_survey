@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+
+    <p>
+    6. Imagine that the interest rate on your savings account was 1% per year and inflation was 2% per year. After 1 year, how much would you be able to buy with the money in this account? More than today, exactly the same as today, or less than today?
+
+    {% formfields %}
+
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

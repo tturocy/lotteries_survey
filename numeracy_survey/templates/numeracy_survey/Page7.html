@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+
+    <p>
+    7. Suppose that in the year 2020, your income has doubled and prices of all goods have doubled too. In 2020, how much will you be able to buy with your income? More than today, exactly the same as today, or less than today?
+
+    {% formfields %}
+
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

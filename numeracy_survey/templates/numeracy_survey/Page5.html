@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+
+    <p>
+    5. Let’s say you have $200 in a savings account. The account earns ten per cent interest per year. How much will you have in the account at the end of two years?
+
+    {% formfields %}
+
+    </p>
+
+    {% next_button %}
+
+{% endblock %}
