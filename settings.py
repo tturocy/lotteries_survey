@@ -19,6 +19,7 @@ SESSION_CONFIGS = [
          app_sequence=[
              'instructions',
              'decisions',
+             'numeracy_survey',
              #'demographics',
              'endpage',
          ],
@@ -32,6 +33,7 @@ SESSION_CONFIGS = [
          app_sequence=[
              'instructions',
              'decisions',
+             'numeracy_survey',
              'demographics',
              'endpage',
          ],
@@ -45,6 +47,7 @@ SESSION_CONFIGS = [
          app_sequence=[
              'instructions',
              'decisions',
+             'numeracy_survey',
              'demographics',
              'endpage',
          ],
@@ -58,6 +61,7 @@ SESSION_CONFIGS = [
          app_sequence=[
              'instructions',
              'decisions',
+             'numeracy_survey',
              'demographics',
              'endpage',
          ],
