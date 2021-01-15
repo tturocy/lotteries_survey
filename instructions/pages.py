@@ -35,16 +35,21 @@ class InstructionsPage8(Page):
     form_model = 'player'
     form_fields = ['answer8']
 
-class InstructionsPage(Page):
+class InstructionsPage9(Page):
+    form_model = 'player'
+    form_fields = ['answer9']
+
+class InstructionsPage10(Page):
     pass
 
-page_sequence = [#InstructionsPage1,
-                #InstructionsPage2,
-                #InstructionsPage3,
-                #InstructionsPage4,
-                #InstructionsPage5,
+page_sequence = [InstructionsPage1,
+                InstructionsPage2,
+                InstructionsPage3,
+                InstructionsPage4,
+                InstructionsPage5,
                 InstructionsPage6,
-                #InstructionsPage7,
-                #InstructionsPage8,
-                #InstructionsPage9,
+                InstructionsPage7,
+                InstructionsPage8,
+                InstructionsPage9,
+                InstructionsPage10,
                  ]

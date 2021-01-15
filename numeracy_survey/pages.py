@@ -12,6 +12,18 @@ class Page2(Page):
 class Page3(Page):
     pass
 
+class Page4(Page):
+    pass
+
+class Page5(Page):
+    pass
+
+class Page6(Page):
+    pass
+
+class Page7(Page):
+    pass
+
 class ResultsWaitPage(WaitPage):
     pass
 
@@ -23,5 +35,9 @@ class Results(Page):
 page_sequence = [Page1,
                  Page2,
                  Page3,
+                 Page4,
+                 Page5,
+                 Page6,
+                 Page7,
                  ResultsWaitPage,
                  Results]
