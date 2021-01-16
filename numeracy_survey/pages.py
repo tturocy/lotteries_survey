@@ -4,25 +4,32 @@ from .models import Constants
 
 
 class Page1(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['answer1']
 
 class Page2(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['answer2']
 
 class Page3(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['answer3']
 
 class Page4(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['answer4']
 
 class Page5(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['answer5']
 
 class Page6(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['answer6']
 
 class Page7(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['answer7']
 
 class ResultsWaitPage(WaitPage):
     pass
