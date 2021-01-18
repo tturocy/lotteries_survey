@@ -2,48 +2,71 @@
 {% load otree %}
 
 {% block title %}
-Instructions 6
+Instructions
 {% endblock %}
 
 {% block content %}
 
-    <p>
+    <h4>
     A typical decision round
-    </p>
+    </h4>
 
     <p>
     In each decision round, you will see two options, as in the example below:
+    <img class="img-fluid" src="{% static "decisions/lottery_p26.jpg" %}"/>
+    <img class="img-fluid" src="{% static "decisions/lottery_q26.jpg" %}"/>
     </p>
-
-    <p>
-    <img src="{% static "decisions/lottery_p26.jpg" %}"/>
-    </p>
-
-    <p>
-    <img src="{% static "decisions/lottery_q26.jpg" %}"/>
-    </p>
-
-    <p>
 
     {% if session.config.show_expected and session.config.show_risk %}
-    To the right of the horizontal bar showing the amounts you would earn for each possible draw are two columns.  The first column is labelled Average Returns.  You can think of this as the amount you would earn if we were to do a large number of random draws, and compute the average earnings per draw. Remember however that your earnings from the option you choose will be determined by a single draw only. The second column is labelled Risk. This shows the standard deviation, which is a measure of how spread out the earnings are.  The earnings from an option with a higher standard deviation are more variable than the earnings from an option with a lower standard deviation.
+    <p>
+    To the right of the horizontal bar showing the amounts you would earn
+        for each possible draw are two columns.
+        The first column is labelled Average Returns.
+        You can think of this as the amount you would earn
+        if we were to do a large number of random draws,
+        and compute the average earnings per draw.
+        Remember however that your earnings from the option
+        you choose will be determined by a single draw only.
 
-    {% elif session.config.show_expected %}
-    To the right of the horizontal bar showing the amounts you would earn for each possible draw is a column labelled Average Returns. You can think of this as the amount you would earn if we were to do a large number of random draws, and compute the average earnings per draw.  Remember however that your earnings from the option you choose will be determined by a single draw only.
-
-    {% elif session.config.show_risk %}
-    To the right of the horizontal bar showing the amounts you would earn for each possible draw is a column labelled Risk. This shows the standard deviation, which is a measure of how spread out the earnings are.  The earnings from an option with a higher standard deviation are more variable than the earnings from an option with a lower standard deviation. This shows the standard deviation, which is a measure of how spread out the earnings are.  The earnings from an option with a higher standard deviation are more variable than the earnings from an option with a lower standard deviation.
-    {% endif %}
-
+        The second column is labelled Risk.
+        This shows the standard deviation, which is a measure
+        of how spread out the earnings are.  The earnings from
+        an option with a higher standard deviation are more variable
+        than the earnings from an option with a lower standard deviation.
     </p>
+    {% elif session.config.show_expected %}
+    <p>
+    To the right of the horizontal bar showing the amounts you would earn
+        for each possible draw is a column labelled Average Returns.
+        You can think of this as the amount you would earn if we were
+        to do a large number of random draws, and compute the average earnings per draw.
+        Remember however that your earnings from the option you choose
+        will be determined by a single draw only.
+    </p>
+    {% elif session.config.show_risk %}
+    <p>
+    To the right of the horizontal bar showing the amounts you would
+        earn for each possible draw is a column labelled Risk.
+        This shows the standard deviation, which is a measure
+        of how spread out the earnings are.  The earnings from an
+        option with a higher standard deviation are more variable
+        than the earnings from an option with a lower standard deviation.
+        This shows the standard deviation, which is a measure of how
+        spread out the earnings are.  The earnings from an option with
+        a higher standard deviation are more variable than the earnings
+        from an option with a lower standard deviation.
+    </p>
+    {% endif %}
 
     <p>
     To select which of the options you would prefer, click on the
-        (WHATEVER IT IS THEY ARE CLICKING ON – DECIDE ON WHETHER WE WANT TO HAVE CLICK AND CONFIRM OR JUST CLICK).
+        (WHATEVER IT IS THEY ARE CLICKING ON – DECIDE ON WHETHER
+        WE WANT TO HAVE CLICK AND CONFIRM OR JUST CLICK).
     </p>
 
-
+    <div class="row justify-content-center">
     {% next_button %}
+    </div>
 
 {% include "global/Footer.html" %}
 {% endblock %}

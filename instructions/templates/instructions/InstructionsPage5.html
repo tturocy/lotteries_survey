@@ -2,22 +2,18 @@
 {% load otree %}
 
 {% block title %}
-Instructions 5
+Instructions
 {% endblock %}
 
 {% block content %}
 
     <p>
     Suppose in a round you chose this option:
-    </p>
-
-    <p>
-    <img src="{% static "decisions/lottery_p26.jpg" %}"/>
+    <img class="img-fluid" src="{% static "decisions/lottery_p26.jpg" %}"/>
     </p>
 
     <p>
     Question 4: How likely is it is that you might earn £10?
-
     {% formfields %}%
 
     </p>

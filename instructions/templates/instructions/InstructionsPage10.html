@@ -2,20 +2,24 @@
 {% load otree %}
 
 {% block title %}
-Instructions 9
+Instructions
 {% endblock %}
 
 {% block content %}
 
-    <p>
+    <h4>
     Summary
-    </p>
+    </h4>
 
     <p>
-    Please select one option out of the available two in each of the 25 rounds. You will be told which round is payment dependant at the end of the experiment hence how much you have earned from your chosen option.
+    Please select one option out of the available two in each of the 25 rounds.
+        You will be told which round is payment dependant at the end of the
+        experiment hence how much you have earned from your chosen option.
     </p>
 
+    <div class="row justify-content-center">
     {% next_button %}
+    </div>
 
 {% include "global/Footer.html" %}
 {% endblock %}

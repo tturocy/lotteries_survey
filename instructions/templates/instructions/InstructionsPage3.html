@@ -6,23 +6,25 @@ Instructions 3
 {% endblock %}
 
 {% block content %}
-
     <p>
     Suppose in a round you chose this option:
+    <img class="img-fluid" src="{% static "decisions/lottery_p26.jpg" %}"/>
     </p>
+
+    {% if form.answer2.errors %}
+        <p class="alert-warning">
+        {{ form.answer2.errors.0 }}
+        </p>
+    {% endif %}
 
     <p>
-    <img src="{% static "decisions/lottery_p26.jpg" %}"/>
+    How much would you earn if the number drawn was between 61 and 100?
+    {{ form.answer2 }}
     </p>
 
-    <p>
-    Question 2: How much would you earn if the number drawn was between 61 and 100?
-
-    £{% formfields %}
-
-    </p>
-
+    <div class="row justify-content-center">
     {% next_button %}
+    </div>
 
 {% include "global/Footer.html" %}
 {% endblock %}

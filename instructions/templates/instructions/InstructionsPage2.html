@@ -2,29 +2,30 @@
 {% load otree %}
 
 {% block title %}
-Instructions 2
+Instructions
 {% endblock %}
 
 {% block content %}
 
+    {% if form.answer1.errors %}
+        <p class="alert-warning">
+        {{ form.answer1.errors.0 }}
+        </p>
+    {% endif %}
+
     <p>
     Suppose in a round you chose this option:
+    <img class="img-fluid" src="{% static "decisions/lottery_p26.jpg" %}"/>
     </p>
 
     <p>
-    <img src="{% static "decisions/lottery_p26.jpg" %}"/>
+    How much would you earn if the number 38 was drawn?
+    {{ form.answer1 }}
     </p>
 
-    <p>
-    Question 1: how much would you earn if the number 38 was drawn?
-    </p>
-
-    <p>
-    £{% formfields %}
-    </p>
-
-
+    <div class="row justify-content-center">
     {% next_button %}
+    </div>
 
 {% include "global/Footer.html" %}
 {% endblock %}
