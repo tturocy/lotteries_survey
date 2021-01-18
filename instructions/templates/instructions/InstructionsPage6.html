@@ -13,11 +13,17 @@ Instructions 7
 
     <p>
     In each decision round, you will see two options, as in the example below:
-    *** show image here ***
     </p>
 
     <p>
+    <img src="{% static "decisions/lottery_p26.jpg" %}"/>
+    </p>
 
+    <p>
+    <img src="{% static "decisions/lottery_q26.jpg" %}"/>
+    </p>
+
+    <p>
 
     {% if session.config.show_expected and session.config.show_risk %}
     To the right of the horizontal bar showing the amounts you would earn for each possible draw are two columns.  The first column is labelled Average Returns.  You can think of this as the amount you would earn if we were to do a large number of random draws, and compute the average earnings per draw. Remember however that your earnings from the option you choose will be determined by a single draw only. The second column is labelled Risk. This shows the standard deviation, which is a measure of how spread out the earnings are.  The earnings from an option with a higher standard deviation are more variable than the earnings from an option with a lower standard deviation.
