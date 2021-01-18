@@ -7,10 +7,6 @@ class InstructionsPage1(Page):
 
 class InstructionsPage2(Page):
     form_model = 'player'
-    form_fields = ['answer']
-
-class InstructionsPage2(Page):
-    form_model = 'player'
     form_fields = ['answer1']
 
 class InstructionsPage3(Page):
