@@ -2,7 +2,7 @@
 {% load otree %}
 
 {% block title %}
-Instructions 1
+Instructions
 {% endblock %}
 
 {% block content %}
@@ -11,35 +11,44 @@ Instructions 1
     INSERT STANDARD BOILERPLATE INTRODUCTION TEXT HERE.
     </p>
 
-    <p>
+    <h4>
     Decision rounds
-    </p>
+    </h4>
 
     <p>
-    Today’s experiment consists of 25 decision rounds. Each round is separate and your choices in one round do not affect the results of any other round.
+        Today's experiment consists of 25 <strong>decision rounds</strong>.
+        Each round is separate, and your choices in one round do not
+        affect the results of any other round.
     </p>
 
-    <p>
+    <h4>
     Your options
+    </h4>
+
+    <p>
+        In each round, you will make a choice of one out of two <strong>options</strong>.
+        A typical option will look like the sample one below:
+    <img class="img-fluid" src="{% static "decisions/lottery_p26.jpg" %}"/>
     </p>
 
     <p>
-    In each round, you will make a choice of one out of two options.   A typical option will look like the sample one below:
+    If you were to choose this option in a round, the amount you would
+        earn would depend on the outcome of a random draw of a number
+        between 1 and 100, inclusive.
+        Each number is equally likely to be chosen.
     </p>
 
     <p>
-    <img src="{% static "decisions/lottery_p26.jpg" %}"/>
+    The horizontal bar tells you how your earnings depend on this draw.
+        You would earn £20 from this option if the number drawn is
+        between 61 and 100; you would earn £10 from this option
+        if the number drawn is between 36 and 60; and you
+        would earn £0 from this option if the number drawn is between 1 and 35.
     </p>
 
-    <p>
-    If you were to choose this option in a round, the amount you would earn would depend on the outcome of a random draw of a number between 1 and 100, inclusive.  Each number is equally likely to be chosen.
-    </p>
-
-    <p>
-    The horizontal bar tells you how your earnings depend on this draw. You would earn £20 from this option if the number drawn is between 61 and 100; you would earn £10 from this option if the number drawn is between 36 and 60; and you would earn £0 from this option if the number drawn is between 1 and 35.
-    </p>
-
+    <div class="row justify-content-center">
     {% next_button %}
+    </div>
 
 {% include "global/Footer.html" %}
 {% endblock %}
