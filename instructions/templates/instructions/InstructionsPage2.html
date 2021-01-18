@@ -7,21 +7,31 @@ Instructions
 
 {% block content %}
 
-    {% if form.answer1.errors %}
-        <p class="alert-warning">
-        {{ form.answer1.errors.0 }}
-        </p>
-    {% endif %}
 
-    <p>
-    Suppose in a round you chose this option:
+    <div class="container">
+        <div class="row">
+            Suppose in a round you chose this option:
+        </div>
     <img class="img-fluid" src="{% static "instructions/lottery_p26.jpg" %}"/>
-    </p>
+    </div>
 
-    <p>
-    How much would you earn if the number 38 was drawn?
-    {{ form.answer1 }}
-    </p>
+    <div class="container border bg-light m-2 p-2">
+    {% if form.answer1.errors %}
+        <div class="alert alert-warning">
+        {% for error in form.answer1.errors %}
+            <div class="row">
+                {{ error }}
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+        <div class="row justify-content-center">
+            How much would you earn if the number 38 was drawn?
+        </div>
+        <div class="row justify-content-center">
+            £{{ form.answer1 }}
+        </div>
+    </div>
 
     <div class="row justify-content-center">
     {% next_button %}

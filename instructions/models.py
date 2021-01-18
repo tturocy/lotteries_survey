@@ -40,10 +40,10 @@ class Player(BasePlayer):
 
     def answer1_error_message(self, answer):
         if answer != 10:
-            return (
-                f"Your earnings in this case would not be {answer}. "
+            return [
+                f"Your earnings in this case would not be £{answer}.",
                 f"Look again at the bar."
-            )
+            ]
 
     def answer2_error_message(self, answer):
         if answer != 20:
