@@ -65,5 +65,5 @@ class Player(BasePlayer):
     answer9 = models.IntegerField()
 
     def answer9_error_message(self, answer):
-        if answer!=1:
+        if answer!=4:
             return 'Answer is incorrect, please try again'
