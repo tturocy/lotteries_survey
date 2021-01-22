@@ -6,8 +6,6 @@ Instructions
 {% endblock %}
 
 {% block content %}
-
-
     <div class="container justify-content-center">
         <div class="row">
             Suppose in a round you chose this option:
@@ -15,17 +13,7 @@ Instructions
     <img class="img-fluid" src="{% static "instructions/lottery_p26.jpg" %}"/>
     </div>
 
-    <div class="container border bg-light m-2 p-2">
-        {% include "global/ShowErrors.html" %}
-        {% for field in form %}
-            <div class="row justify-content-center">
-                {{ field.label }}
-            </div>
-            <div class="row justify-content-center">
-                {{ field }}
-            </div>
-        {% endfor %}
-    </div>
+    {% include "global/ComprehensionForm.html" %}
 
     <div class="row justify-content-center">
     {% next_button %}

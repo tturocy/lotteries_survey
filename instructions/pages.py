@@ -34,16 +34,22 @@ class OptionComprehension4(Page):
 class InstructionsPage6(Page):
     pass
 
+
 class InstructionsPage7(Page):
     pass
 
-class InstructionsPage8(Page):
+
+class GeneralComprehension1(Page):
+    template_name = "instructions/GeneralComprehension.html"
     form_model = 'player'
     form_fields = ['answer8']
 
-class InstructionsPage9(Page):
+
+class GeneralComprehension2(Page):
+    template_name = "instructions/GeneralComprehension.html"
     form_model = 'player'
     form_fields = ['answer9']
+
 
 class InstructionsPage10(Page):
     pass
@@ -57,7 +63,7 @@ page_sequence = [
     OptionComprehension4,
     InstructionsPage6,
     InstructionsPage7,
-    InstructionsPage8,
-    InstructionsPage9,
+    GeneralComprehension1,
+    GeneralComprehension2,
     InstructionsPage10,
 ]

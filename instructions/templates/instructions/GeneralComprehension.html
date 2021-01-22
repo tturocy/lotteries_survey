@@ -7,10 +7,7 @@ Instructions
 
 {% block content %}
 
-    <p>
-     How many rounds will be selected for payment?
-    {% formfields %}
-    </p>
+    {% include "global/ComprehensionForm.html" %}
 
     <div class="row justify-content-center">
     {% next_button %}

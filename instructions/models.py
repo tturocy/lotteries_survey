@@ -43,8 +43,12 @@ class Player(BasePlayer):
     answer4 = models.IntegerField(
         label="How likely is it is that you might earn £10?"
     )
-    answer8 = models.IntegerField()
-    answer9 = models.IntegerField()
+    answer8 = models.IntegerField(
+        label="How many rounds will be selected for payment?"
+    )
+    answer9 = models.IntegerField(
+        label="How likely is a round to be selected?"
+    )
 
     def answer1_error_message(self, answer):
         if answer != 10:
