@@ -9,9 +9,21 @@ class InstructionsPage2(Page):
     form_model = 'player'
     form_fields = ['answer1']
 
+    def vars_for_template(self):
+        return {
+            'question': "How much would you earn if the number 38 was drawn?"
+        }
+
+
 class InstructionsPage3(Page):
     form_model = 'player'
     form_fields = ['answer2']
+
+    def vars_for_template(self):
+        return {
+            'question': "How much would you earn if the number drawn was between 61 and 100?"
+        }
+
 
 class InstructionsPage4(Page):
     form_model = 'player'

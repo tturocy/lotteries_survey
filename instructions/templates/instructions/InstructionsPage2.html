@@ -18,11 +18,13 @@ Instructions
     <div class="container border bg-light m-2 p-2">
         {% include "global/ShowErrors.html" %}
         <div class="row justify-content-center">
-            How much would you earn if the number 38 was drawn?
+            {{ question }}
         </div>
-        <div class="row justify-content-center">
-            £{{ form.answer1 }}
-        </div>
+        {% for field in form %}
+            <div class="row justify-content-center">
+                {{ field }}
+            </div>
+        {% endfor %}
     </div>
 
     <div class="row justify-content-center">
