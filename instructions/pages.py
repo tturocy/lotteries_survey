@@ -2,50 +2,68 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
-class InstructionsPage1(Page):
+
+class Introduction(Page):
     pass
 
-class InstructionsPage2(Page):
+
+class OptionComprehension1(Page):
+    template_name = "instructions/OptionComprehension.html"
     form_model = 'player'
     form_fields = ['answer1']
 
-class InstructionsPage3(Page):
+
+class OptionComprehension2(Page):
+    template_name = "instructions/OptionComprehension.html"
     form_model = 'player'
     form_fields = ['answer2']
 
-class InstructionsPage4(Page):
+
+class OptionComprehension3(Page):
+    template_name = "instructions/OptionComprehension.html"
     form_model = 'player'
     form_fields = ['answer3']
 
-class InstructionsPage5(Page):
+
+class OptionComprehension4(Page):
+    template_name = "instructions/OptionComprehension.html"
     form_model = 'player'
     form_fields = ['answer4']
 
-class InstructionsPage6(Page):
+
+class DecisionRounds(Page):
     pass
 
-class InstructionsPage7(Page):
+
+class DeterminingEarnings(Page):
     pass
 
-class InstructionsPage8(Page):
+
+class GeneralComprehension1(Page):
+    template_name = "instructions/GeneralComprehension.html"
     form_model = 'player'
     form_fields = ['answer8']
 
-class InstructionsPage9(Page):
+
+class GeneralComprehension2(Page):
+    template_name = "instructions/GeneralComprehension.html"
     form_model = 'player'
     form_fields = ['answer9']
 
-class InstructionsPage10(Page):
+
+class Summary(Page):
     pass
 
-page_sequence = [InstructionsPage1,
-                InstructionsPage2,
-                InstructionsPage3,
-                InstructionsPage4,
-                InstructionsPage5,
-                InstructionsPage6,
-                InstructionsPage7,
-                InstructionsPage8,
-                InstructionsPage9,
-                InstructionsPage10,
-                 ]
+
+page_sequence = [
+    Introduction,
+    OptionComprehension1,
+    OptionComprehension2,
+    OptionComprehension3,
+    OptionComprehension4,
+    DecisionRounds,
+    DeterminingEarnings,
+    GeneralComprehension1,
+    GeneralComprehension2,
+    Summary,
+]

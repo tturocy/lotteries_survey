@@ -1,0 +1,11 @@
+<div class="container border bg-light m-2 p-2">
+    {% include "global/ShowErrors.html" %}
+    {% for field in form %}
+        <div class="row justify-content-center">
+            {{ field.label }}
+        </div>
+        <div class="row justify-content-center">
+            {{ field }}
+        </div>
+    {% endfor %}
+</div>
