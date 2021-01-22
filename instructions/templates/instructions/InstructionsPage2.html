@@ -8,7 +8,7 @@ Instructions
 {% block content %}
 
 
-    <div class="container">
+    <div class="container justify-content-center">
         <div class="row">
             Suppose in a round you chose this option:
         </div>
@@ -16,15 +16,7 @@ Instructions
     </div>
 
     <div class="container border bg-light m-2 p-2">
-    {% if form.answer1.errors %}
-        <div class="alert alert-warning">
-        {% for error in form.answer1.errors %}
-            <div class="row">
-                {{ error }}
-            </div>
-        {% endfor %}
-        </div>
-    {% endif %}
+        {% include "global/ShowErrors.html" %}
         <div class="row justify-content-center">
             How much would you earn if the number 38 was drawn?
         </div>
