@@ -2,10 +2,13 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+
 class InstructionsPage1(Page):
     pass
 
-class InstructionsPage2(Page):
+
+class OptionComprehension1(Page):
+    template_name = "instructions/OptionComprehension.html"
     form_model = 'player'
     form_fields = ['answer1']
 
@@ -15,7 +18,8 @@ class InstructionsPage2(Page):
         }
 
 
-class InstructionsPage3(Page):
+class OptionComprehension2(Page):
+    template_name = "instructions/OptionComprehension.html"
     form_model = 'player'
     form_fields = ['answer2']
 
@@ -25,13 +29,27 @@ class InstructionsPage3(Page):
         }
 
 
-class InstructionsPage4(Page):
+class OptionComprehension3(Page):
+    template_name = "instructions/OptionComprehension.html"
     form_model = 'player'
     form_fields = ['answer3']
 
-class InstructionsPage5(Page):
+    def vars_for_template(self):
+        return {
+            'question': "How likely is the number 4 to be drawn?"
+        }
+
+
+class OptionComprehension4(Page):
+    template_name = "instructions/OptionComprehension.html"
     form_model = 'player'
     form_fields = ['answer4']
+
+    def vars_for_template(self):
+        return {
+            'question': "How likely is it is that you might earn £10?"
+        }
+
 
 class InstructionsPage6(Page):
     pass
@@ -50,14 +68,16 @@ class InstructionsPage9(Page):
 class InstructionsPage10(Page):
     pass
 
-page_sequence = [InstructionsPage1,
-                InstructionsPage2,
-                InstructionsPage3,
-                InstructionsPage4,
-                InstructionsPage5,
-                InstructionsPage6,
-                InstructionsPage7,
-                InstructionsPage8,
-                InstructionsPage9,
-                InstructionsPage10,
-                 ]
+
+page_sequence = [
+    InstructionsPage1,
+    OptionComprehension1,
+    OptionComprehension2,
+    OptionComprehension3,
+    OptionComprehension4,
+    InstructionsPage6,
+    InstructionsPage7,
+    InstructionsPage8,
+    InstructionsPage9,
+    InstructionsPage10,
+]
