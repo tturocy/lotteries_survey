@@ -31,10 +31,18 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    answer1 = models.IntegerField()
-    answer2 = models.IntegerField()
-    answer3 = models.IntegerField()
-    answer4 = models.IntegerField()
+    answer1 = models.IntegerField(
+        label="How much would you earn if the number 38 was drawn?"
+    )
+    answer2 = models.IntegerField(
+        label="How much would you earn if the number drawn was between 61 and 100?"
+    )
+    answer3 = models.IntegerField(
+        label="How likely is the number 4 to be drawn?"
+    )
+    answer4 = models.IntegerField(
+        label="How likely is it is that you might earn £10?"
+    )
     answer8 = models.IntegerField()
     answer9 = models.IntegerField()
 
