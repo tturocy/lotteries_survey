@@ -3,7 +3,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class InstructionsPage1(Page):
+class Introduction(Page):
     pass
 
 
@@ -31,11 +31,11 @@ class OptionComprehension4(Page):
     form_fields = ['answer4']
 
 
-class InstructionsPage6(Page):
+class DecisionRounds(Page):
     pass
 
 
-class InstructionsPage7(Page):
+class DeterminingEarnings(Page):
     pass
 
 
@@ -51,19 +51,19 @@ class GeneralComprehension2(Page):
     form_fields = ['answer9']
 
 
-class InstructionsPage10(Page):
+class Summary(Page):
     pass
 
 
 page_sequence = [
-    InstructionsPage1,
+    Introduction,
     OptionComprehension1,
     OptionComprehension2,
     OptionComprehension3,
     OptionComprehension4,
-    InstructionsPage6,
-    InstructionsPage7,
+    DecisionRounds,
+    DeterminingEarnings,
     GeneralComprehension1,
     GeneralComprehension2,
-    InstructionsPage10,
+    Summary,
 ]
