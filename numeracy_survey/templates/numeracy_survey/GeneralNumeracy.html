@@ -2,20 +2,16 @@
 {% load otree static %}
 
 {% block title %}
-    Survey Part 1
+    Survey
 {% endblock %}
 
 {% block content %}
 
-    <p>
-    3. A second hand car dealer is selling a car for $6,000. This is two-thirds of what it cost new. How much did the car cost new?
-
-    {% formfields %}
-
-    </p>
+    {% include "global/ComprehensionForm.html" %}
 
     <div class="row justify-content-center">
     {% next_button %}
     </div>
 
+{% include "global/Footer.html" %}
 {% endblock %}
