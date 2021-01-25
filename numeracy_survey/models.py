@@ -10,11 +10,10 @@ from otree.api import (
 )
 
 
-author = 'Your name here'
+author = 'Prachi Hejib'
 
-doc = """
-Your app description
-"""
+doc = "Lotteries_survey"
+"Investment decisions modelled as lottery choices"
 
 
 class Constants(BaseConstants):
@@ -33,44 +32,35 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    answer1 = models.IntegerField()
-
-    def answer1_error_message(self, answer):
-        if answer != 150:
-            return 'Answer is incorrect, please try again'
-
-    answer2 = models.IntegerField()
-
-    def answer2_error_message(self, answer):
-        if answer != 100:
-            return 'Answer is incorrect, please try again'
-
-    answer3 = models.IntegerField()
-
-    def answer3_error_message(self, answer):
-        if answer != 9000:
-            return 'Answer is incorrect, please try again'
-
-    answer4 = models.IntegerField()
-
-    def answer4_error_message(self, answer):
-        if answer != 400000:
-            return 'Answer is incorrect, please try again'
-
-    answer5 = models.IntegerField()
-
-    def answer5_error_message(self, answer):
-        if answer != 242:
-            return 'Answer is incorrect, please try again'
-
-    answer6 = models.IntegerField()
-
-    def answer6_error_message(self, answer):
-        if answer != 1:
-            return 'Answer is incorrect, please try again'
-
-    answer7 = models.IntegerField()
-
-    def answer7_error_message(self, answer):
-        if answer != 1:
-            return 'Answer is incorrect, please try again'
+    answer1 = models.IntegerField(
+        label="In a sale, a shop is selling all items at half price. Before the sale, a sofa costs $300. How much will it cost in the sale?"
+    )
+    answer2 = models.IntegerField(
+        label="If the chance of getting a disease is 10 per cent, "
+              "how many people out of 1,000 would be expected to get the disease?"
+    )
+    answer3 = models.IntegerField(
+        label="A second hand car dealer is selling a car for $6,000. "
+              "This is two-thirds of what it cost new. How much did the car cost new?"
+    )
+    answer4 = models.IntegerField(
+        label="If 5 people all have the winning numbers in the lottery "
+              "and the prize is $2 million, how much will each of them get?"
+    )
+    answer5 = models.IntegerField(
+        label="Let’s say you have $200 in a savings account. "
+              "The account earns ten per cent interest per year. "
+              "How much will you have in the account at the end of two years?"
+    )
+    answer6 = models.IntegerField(
+        label="Imagine that the interest rate on your savings account "
+              "was 1% per year and inflation was 2% per year. "
+              "After 1 year, how much would you be able to buy with the money "
+              "in this account? More than today, exactly the same as today, or less than today?"
+    )
+    answer7 = models.IntegerField(
+        label="Suppose that in the year 2020, your income has doubled and "
+              "prices of all goods have doubled too. In 2020, "
+              "how much will you be able to buy with your income? "
+              "More than today, exactly the same as today, or less than today?"
+    )

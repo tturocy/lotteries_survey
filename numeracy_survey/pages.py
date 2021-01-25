@@ -3,31 +3,38 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class Page1(Page):
+class NumeracyPage1(Page):
+    template_name = "numeracy_survey/GeneralNumeracy.html"
     form_model = 'player'
     form_fields = ['answer1']
 
-class Page2(Page):
+class NumeracyPage2(Page):
+    template_name = "numeracy_survey/GeneralNumeracy.html"
     form_model = 'player'
     form_fields = ['answer2']
 
-class Page3(Page):
+class NumeracyPage3(Page):
+    template_name = "numeracy_survey/GeneralNumeracy.html"
     form_model = 'player'
     form_fields = ['answer3']
 
-class Page4(Page):
+class NumeracyPage4(Page):
+    template_name = "numeracy_survey/GeneralNumeracy.html"
     form_model = 'player'
     form_fields = ['answer4']
 
-class Page5(Page):
+class NumeracyPage5(Page):
+    template_name = "numeracy_survey/GeneralNumeracy.html"
     form_model = 'player'
     form_fields = ['answer5']
 
-class Page6(Page):
+class NumeracyPage6(Page):
+    template_name = "numeracy_survey/GeneralNumeracy.html"
     form_model = 'player'
     form_fields = ['answer6']
 
-class Page7(Page):
+class NumeracyPage7(Page):
+    template_name = "numeracy_survey/GeneralNumeracy.html"
     form_model = 'player'
     form_fields = ['answer7']
 
@@ -39,12 +46,12 @@ class Results(Page):
     pass
 
 
-page_sequence = [Page1,
-                 Page2,
-                 Page3,
-                 Page4,
-                 Page5,
-                 Page6,
-                 Page7,
+page_sequence = [NumeracyPage1,
+                 NumeracyPage2,
+                 NumeracyPage3,
+                 NumeracyPage4,
+                 NumeracyPage5,
+                 NumeracyPage6,
+                 NumeracyPage7,
                  ResultsWaitPage,
                  Results]
