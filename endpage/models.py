@@ -43,6 +43,6 @@ class Player(BasePlayer):
         self.paid_period = random.randint(
             1, len(self.participant.vars['choices'])
         )
-        self.participant.payoff = (
+        self.participant.payoff += (
             self.participant.vars['choices'][self.paid_period].payoff
         )

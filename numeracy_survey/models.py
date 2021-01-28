@@ -17,7 +17,7 @@ doc = "Lotteries_survey"
 
 
 class Constants(BaseConstants):
-    name_in_url = 'numeracy_survey'
+    name_in_url = 'survey'
     players_per_group = None
     num_rounds = 1
 
@@ -64,3 +64,19 @@ class Player(BasePlayer):
               "how much will you be able to buy with your income? "
               "More than today, exactly the same as today, or less than today?"
     )
+
+    def process_answers(self):
+        if self.answer1 == 150:
+            self.participant.payoff += c(0.5)
+        if self.answer2 == 100:
+            self.participant.payoff += c(0.5)
+        if self.answer3 == 9000:
+            self.participant.payoff += c(0.5)
+        if self.answer4 == 400000:
+            self.participant.payoff += c(0.5)
+        if self.answer5 == 242:
+            self.participant.payoff += c(0.5)
+        if self.answer6 == "less than today":
+            self.participant.payoff += c(0.5)
+        if self.answer7 == "same as today":
+            self.participant.payoff += c(0.5)

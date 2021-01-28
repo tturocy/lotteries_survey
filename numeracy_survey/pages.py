@@ -38,9 +38,11 @@ class NumeracyPage7(Page):
     form_model = 'player'
     form_fields = ['answer7']
 
+    def before_next_page(self):
+        self.player.process_answers()
+
 class ResultsWaitPage(WaitPage):
     pass
-
 
 class Results(Page):
     pass

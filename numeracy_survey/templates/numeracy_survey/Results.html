@@ -2,10 +2,12 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+Summary of Earnings in this Round
 {% endblock %}
 
 {% block content %}
+
+    Your payoff for this round is {{ participant.payoff }}
 
     {% next_button %}
 {% endblock %}
