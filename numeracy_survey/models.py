@@ -56,13 +56,24 @@ class Player(BasePlayer):
         label="Imagine that the interest rate on your savings account "
               "was 1% per year and inflation was 2% per year. "
               "After 1 year, how much would you be able to buy with the money "
-              "in this account? More than today, exactly the same as today, or less than today?"
+              "in this account?",
+        choices=[
+            [1, 'More than today'],
+            [2, 'exactly the same as today'],
+            [3, "less than today?"],
+        ],
+        widget=widgets.RadioSelect
     )
     answer7 = models.IntegerField(
         label="Suppose that in the year 2020, your income has doubled and "
               "prices of all goods have doubled too. In 2020, "
-              "how much will you be able to buy with your income? "
-              "More than today, exactly the same as today, or less than today?"
+              "how much will you be able to buy with your income? ",
+        choices=[
+            [1, 'More than today'],
+            [2, 'exactly the same as today'],
+            [3, "less than today?"],
+        ],
+        widget=widgets.RadioSelect
     )
 
     def process_answers(self):
@@ -76,7 +87,7 @@ class Player(BasePlayer):
             self.participant.payoff += c(0.5)
         if self.answer5 == 242:
             self.participant.payoff += c(0.5)
-        if self.answer6 == "less than today":
+        if self.answer6 == 3:
             self.participant.payoff += c(0.5)
-        if self.answer7 == "same as today":
+        if self.answer7 == 2:
             self.participant.payoff += c(0.5)
