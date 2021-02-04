@@ -2,12 +2,20 @@
 {% load otree static %}
 
 {% block title %}
-Earnings in this Round
+Survey
 {% endblock %}
 
 {% block content %}
 
-    Your payoff for this round is {{ participant.payoff }}
+    <h4>
+    Earnings for Survey
+    </h4>
+
+    <div class="container border bg-light p-2 mt-2 mb-2">
+            <div class="row justify-content-center">
+                Your payoff for this round is {{ participant.payoff }}
+            </div>
+    </div>
 
     <div class="row justify-content-center">
     {% next_button %}
