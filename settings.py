@@ -18,8 +18,8 @@ SESSION_CONFIGS = [
          num_demo_participants=1,
          app_sequence=[
              #'instructions',
-             #'decisions',
-             'numeracy_survey',
+             'decisions',
+             #'numeracy_survey',
              #'demographics',
              #'endpage',
          ],
