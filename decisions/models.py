@@ -24,21 +24,6 @@ class Constants(BaseConstants):
     num_rounds = 2
 
 
-class Subsession(BaseSubsession):
-    def creating_session(self):
-        if 'lotteries' not in self.session.vars:
-            self.session.vars['lotteries'] = (
-                pd.read_csv("decisions/lotteries.csv",
-                            index_col='roll')
-                .transpose()
-            )
-        for (menu_seq, player) in enumerate(self.get_players()):
-            player.participant.vars['menu_seq'] = menu_seq
-
-    def get_menu_number(self, round_number, group_number):
-        return round_number
-
-
 class MenuItem:
     def __init__(self, imagepath, lottery):
         self.imagepath = imagepath
@@ -49,6 +34,47 @@ class MenuItem:
 
     def risk(self):
         return f"{self.lottery.std():.2f}"
+
+
+class MenuSequence:
+    def __init__(self, session, menu_seq):
+        self.session = session
+        self.menu_seq = menu_seq
+        order = list(range(1, 26))
+        random.shuffle(order)
+        self.sequence = {i+1: j
+                         for (i, j) in enumerate(order)}
+
+    def get_menu(self, round_number):
+        menu_number = self.get_menu_number(round_number)
+        return [
+            MenuItem(
+                f"decisions/lottery_p{menu_number}.jpg",
+                self.session.vars['lotteries'].loc[f"p{menu_number}"]
+            ),
+            MenuItem(
+                f"decisions/lottery_q{menu_number}.jpg",
+                self.session.vars['lotteries'].loc[f"q{menu_number}"]
+            )
+        ]
+
+    def get_menu_number(self, round_number):
+        return self.sequence[round_number]
+
+
+class Subsession(BaseSubsession):
+    def creating_session(self):
+        if 'lotteries' not in self.session.vars:
+            self.session.vars['lotteries'] = (
+                pd.read_csv("decisions/lotteries.csv",
+                            index_col='roll')
+                .transpose()
+            )
+        if self.round_number == 1:
+            for (menu_seq, player) in enumerate(self.get_players()):
+                player.participant.vars['menu_seq'] = (
+                    MenuSequence(self.session, menu_seq)
+                )
 
 
 class Group(BaseGroup):
@@ -66,24 +92,16 @@ class PlayerChoice:
 
 
 class Player(BasePlayer):
+    menu_number = models.IntegerField()
     lotterychoice = models.IntegerField()
     # Dice rolls are determined at subsession initialisation
     roll = models.IntegerField()
 
     def get_menu(self):
-        menu_number = self.round_number
-        return [
-            MenuItem(
-                f"decisions/lottery_p{menu_number}.jpg",
-                self.session.vars['lotteries'].loc[f"p{menu_number}"]
-            ),
-            MenuItem(
-                f"decisions/lottery_q{menu_number}.jpg",
-                self.session.vars['lotteries'].loc[f"q{menu_number}"]
-            )
-        ]
+        return self.participant.vars['menu_seq'].get_menu(self.round_number)
 
     def process_decision(self):
+        self.menu_number = self.participant.vars['menu_seq'].get_menu_number(self.record_number)
         self.roll = random.randint(1, 100)
         item = self.get_menu()[self.lotterychoice]
         if 'choices' not in self.participant.vars:
