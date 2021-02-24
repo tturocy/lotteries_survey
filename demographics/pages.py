@@ -5,10 +5,6 @@ from .models import Constants
 class DemographicsIntro(Page):
     pass
 
-class DemographicsPage1(Page):
-    template_name = "Demographics/GeneralDemographics.html"
-    form_model = 'player'
-    form_fields = ['gender']
 
 class DemographicsPage1(Page):
     template_name = "Demographics/GeneralDemographics.html"

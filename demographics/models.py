@@ -97,7 +97,7 @@ class Player(BasePlayer):
             [2, '1-2 years'],
             [3, '2-3 years'],
             [4, '3-4 years'],
-            [5, ' more than 4 years'],
+            [5, 'more than 4 years'],
             ],
             widget = widgets.RadioSelect,
         blank=True,
