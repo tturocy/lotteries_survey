@@ -117,7 +117,7 @@ class Player(BasePlayer):
         return self.participant.vars['menu_seq'].get_menu(self.round_number)
 
     def process_decision(self):
-        self.menu_number = self.participant.vars['menu_seq'].get_menu_number(self.record_number)
+        self.menu_number = self.participant.vars['menu_seq'].get_menu_number(self.round_number)
         self.roll = random.randint(1, 100)
         item = self.get_menu()[self.lotterychoice]
         if 'choices' not in self.participant.vars:
