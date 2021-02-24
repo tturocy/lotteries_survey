@@ -17,8 +17,8 @@ SESSION_CONFIGS = [
          display_name="Baseline",
          num_demo_participants=1,
          app_sequence=[
-             #'instructions',
-             'decisions',
+             'instructions',
+             #'decisions',
              #'numeracy_survey',
              #'demographics',
              #'endpage',
