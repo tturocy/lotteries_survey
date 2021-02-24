@@ -2,13 +2,16 @@
 {% load otree %}
 
 {% block title %}
-A bit about you... 2 of 2
+A bit about you...
 {% endblock %}
 
 {% block content %}
 
+    {% include "global/ComprehensionForm.html" %}
+
+    <div class="row justify-content-center">
     {% next_button %}
+    </div>
 
 {% include "global/Footer.html" %}
 {% endblock %}
-
