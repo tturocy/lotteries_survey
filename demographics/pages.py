@@ -2,57 +2,51 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
-class DemographicsIntro(Page):
+
+class Introduction(Page):
     pass
 
 
-class DemographicsPage1(Page):
+class QuestionPage(Page):
     template_name = "Demographics/GeneralDemographics.html"
     form_model = 'player'
-    form_fields = ['gender',
-                   'genderother'
-                   ]
 
-class DemographicsPage2(Page):
-    template_name = "Demographics/GeneralDemographics.html"
-    form_model = 'player'
+
+class Page1(QuestionPage):
+    form_fields = ['gender']
+
+
+class Page2(QuestionPage):
     form_fields = ['age']
 
-class DemographicsPage3(Page):
-    template_name = "Demographics/GeneralDemographics.html"
-    form_model = 'player'
+
+class Page3(QuestionPage):
     form_fields = ['countryborn']
 
-class DemographicsPage4(Page):
-    template_name = "Demographics/GeneralDemographics.html"
-    form_model = 'player'
+
+class Page4(QuestionPage):
     form_fields = ['countrynow']
 
-class DemographicsPage5(Page):
-    template_name = "Demographics/GeneralDemographics.html"
-    form_model = 'player'
+
+class Page5(QuestionPage):
     form_fields = ['department']
 
-class DemographicsPage6(Page):
-    template_name = "Demographics/GeneralDemographics.html"
-    form_model = 'player'
-    form_fields = ['degree',
-                   'degreeother',
-                   ]
 
-class DemographicsPage7(Page):
-    template_name = "Demographics/GeneralDemographics.html"
-    form_model = 'player'
+class Page6(QuestionPage):
+    form_fields = ['degree']
+
+
+class Page7(QuestionPage):
     form_fields = ['timeuea']
 
 
-
-page_sequence = [DemographicsIntro,
-                 DemographicsPage1,
-                 DemographicsPage2,
-                 DemographicsPage3,
-                 DemographicsPage4,
-                 DemographicsPage5,
-                 DemographicsPage6,
-                 DemographicsPage7,
-                 ]
+page_sequence = [
+    Introduction,
+    Page1,
+    Page2,
+    Page3,
+    Page4,
+    Page5,
+    Page6,
+    Page7,
+]

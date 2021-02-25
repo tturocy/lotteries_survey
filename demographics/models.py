@@ -18,7 +18,7 @@ Demographics Survey
 
 
 class Constants(BaseConstants):
-    name_in_url = 'demographics'
+    name_in_url = 'aboutyou'
     players_per_group = None
     num_rounds = 1
 
@@ -33,11 +33,11 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     gender = models.IntegerField(
-        label="1.	What gender do you identify as?",
+        label="What gender do you identify as?",
         choices = [
-        [1, 'Male'],
-        [2, 'Female'],
-        [3, 'Other'],
+            [1, "Male"],
+            [2, "Female"],
+            [3, "Other"],
         ],
         widget=widgets.RadioSelect,
         blank=True,
@@ -49,28 +49,28 @@ class Player(BasePlayer):
     )
 
     age = models.IntegerField(
-        label="2.	How old are you?",
+        label="How old are you?",
         blank=True,
     )
 
     countryborn = models.StringField(
-        label="3.	Which country (or countries) were you a citizen of when you were born?",
+        label="Which country (or countries) were you a citizen of when you were born?",
         blank=True,
     )
 
     countrynow = models.StringField(
-        label="4.	In which country is your current permanent residence? "
-              "(If you are in the UK on a student visa, this is where “home” is.)",
+        label="In which country is your current permanent residence? "
+              "(If you are in the UK on a student visa, this is where 'home' is.)",
         blank=True,
     )
 
     department = models.StringField(
-        label="5.	In which School are you currently enrolled? (For example, BIO, ECO, EDU…)",
+        label="In which School are you currently enrolled? (For example, BIO, ECO, EDU…)",
         blank=True,
     )
 
     degree = models.IntegerField(
-        label="6.	What type of degree course are you currently enrolled on?",
+        label="What type of degree course are you currently enrolled on?",
         choices = [
             [1, 'INTO'],
             [2, 'Bachelor'],
@@ -84,20 +84,14 @@ class Player(BasePlayer):
         blank=True,
     )
 
-    degreeother = models.StringField(
-        label="If other please specify:",
-        blank=True,
-    )
-
-
     timeuea = models.IntegerField(
-        label="7.	How long have you been at UEA?",
+        label="How long have you been at UEA?",
         choices=[
-            [1, 'less than 1 year'],
-            [2, '1-2 years'],
-            [3, '2-3 years'],
-            [4, '3-4 years'],
-            [5, 'more than 4 years'],
+            [1, "This is my first year"],
+            [2, "This is my second year"],
+            [3, "This is my third year"],
+            [4, "This is my fourth year"],
+            [5, "I have been here more than four years"],
             ],
             widget = widgets.RadioSelect,
         blank=True,
