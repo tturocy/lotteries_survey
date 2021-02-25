@@ -19,8 +19,8 @@ SESSION_CONFIGS = [
          app_sequence=[
              #'instructions',
              #'decisions',
-             #'numeracy_survey',
-             'demographics',
+             'numeracy_survey',
+             #'demographics',
              #'endpage',
          ],
          show_expected=False,
