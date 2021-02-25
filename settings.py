@@ -17,10 +17,10 @@ SESSION_CONFIGS = [
          display_name="Baseline",
          num_demo_participants=1,
          app_sequence=[
-             #'instructions',
+             'instructions',
              #'decisions',
              #'numeracy_survey',
-             'demographics',
+             #'demographics',
              #'endpage',
          ],
          show_expected=False,

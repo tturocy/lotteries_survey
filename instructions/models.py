@@ -1,3 +1,5 @@
+import django.forms.widgets
+
 from otree.api import (
     models,
     widgets,
@@ -30,37 +32,51 @@ class Group(BaseGroup):
     pass
 
 
+class CurrencyInput(django.forms.widgets.NumberInput):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def render(self, *args, **kwargs):
+        return (
+            '<div class="input-group">'
+            '<span class="input-group-text">£</span>'
+            f'{super().render(*args, **kwargs)}'
+            '</div>'
+        )
+
 class Player(BasePlayer):
     answer1 = models.IntegerField(
-        label="How much would you earn if ball number 38 was drawn?"
+        label="How much would you earn if ball number 38 was drawn?",
+        widget=CurrencyInput
     )
     answer2 = models.IntegerField(
-        label="How much would you earn if a ball number between 61 and 100 was drawn?"
+        label="How much would you earn if a ball number between 61 and 100 was drawn?",
+        widget=CurrencyInput
     )
     answer3 = models.IntegerField(
-        label="Is it it more likely that ball number 4 is drawn than 27 ?",
+        label="Is it it more likely that ball number 4 is drawn than ball number 27?",
         choices = [
-            [1, "yes, 4 is more likely"],
-            [2, "no, 27 is more likely"],
-            [3, "no, both 4 and 27 are equally likely to be drawn"],
-              ],
-              widget = widgets.RadioSelect
+            [1, "Yes, 4 is more likely"],
+            [2, "No, 27 is more likely"],
+            [3, "No, both 4 and 27 are equally likely to be drawn"],
+        ],
+        widget = widgets.RadioSelect
     )
     answer4 = models.IntegerField(
-        label="How many balls out of 100 allow you to earn £10 if they were drawn?"
+        label="Of the 100 balls, how many of them would result in you earning £10 if drawn?"
     )
     answer8 = models.IntegerField(
         label="How many rounds will be selected for payment?"
     )
     answer9 = models.IntegerField(
-        label="How likely is a round to be selected for payment?",
+        label="How likely is it that a given round will be selected for payment?",
         choices = [
-            [1, "1/25"],
+            [1, "A 1 in 25 chance"],
             [2, "4%"],
             [3, "All rounds are equally likely to be selected"],
             [4, "All of the above"]
-              ],
-              widget = widgets.RadioSelect
+        ],
+        widget = widgets.RadioSelect
     )
 
     def answer1_error_message(self, answer):
