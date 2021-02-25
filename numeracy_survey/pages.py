@@ -1,6 +1,7 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
+from .models import questions
 
 
 class NumeracyPage1(Page):
@@ -53,7 +54,19 @@ class ResultsWaitPage(WaitPage):
 
 
 class ResultsPage(Page):
-    pass
+    def vars_for_template(self):
+        return {
+            'questions': [
+                {
+                    'text': q['text'],
+                    'correct': q['answer'],
+                    'answer': p,
+                    'earnings': c(0.50) if q['answer'] == p else c(0.00)
+                }
+                for (p, q) in zip(self.player.get_answers(),
+                                  questions)
+            ]
+        }
 
 
 page_sequence = [

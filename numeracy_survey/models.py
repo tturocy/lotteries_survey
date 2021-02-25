@@ -11,7 +11,6 @@ from otree.api import (
     currency_range,
 )
 
-
 author = 'Prachi Hejib'
 
 doc = "Lotteries_survey"
@@ -44,52 +43,87 @@ class CurrencyInput(django.forms.widgets.NumberInput):
             '</div>'
         )
 
-
-class Player(BasePlayer):
-    answer1 = models.IntegerField(
-        label=(
+questions = [
+    {
+        'text': (
             "In a sale, a shop is selling all items at half price. "
             "Before the sale, a sofa costs £300. "
             "How much will it cost during the sale?"
         ),
-        widget=CurrencyInput
-    )
-    answer2 = models.IntegerField(
-        label=(
+        'answer': 150
+    },
+    {
+        'text': (
             "If the chance of getting a disease is 10 per cent, "
             "how many people out of 1000 would be expected to get the disease?"
-        )
-    )
-    answer3 = models.IntegerField(
-        label=(
+        ),
+        'answer': 100
+    },
+    {
+        'text': (
             "A second hand car dealer is selling a car for £6000. "
             "This is two-thirds of what it cost new. "
             "How much did the car cost new?"
         ),
-        widget=CurrencyInput
-    )
-    answer4 = models.IntegerField(
-        label=(
+        'answer': 9000
+    },
+    {
+        'text': (
             "If 5 people all have the winning numbers in the lottery "
             "and the prize is £2 million, how much will each of them get?"
         ),
-        widget=CurrencyInput
-    )
-    answer5 = models.IntegerField(
-        label=(
+        'answer': 400000
+    },
+    {
+        'text': (
             "Let's say you have £200 in a savings account. "
             "The account earns ten per cent interest per year. "
             "How much will you have in the account at the end of two years?"
         ),
-        widget=CurrencyInput
-    )
-    answer6 = models.IntegerField(
-        label=(
+        'answer': 242
+    },
+    {
+        'text': (
             "Imagine that the interest rate on your savings account "
             "was 1% per year and inflation was 2% per year. "
             "After 1 year, how much would you be able to buy with the money "
             "in this account?"
         ),
+        'answer': 3
+    },
+    {
+        'text': (
+            "Suppose that in the year 2030, your income has doubled and "
+            "prices of all goods have doubled too. In 2030, "
+            "how much will you be able to buy with your income?"
+        ),
+        'answer': 2
+    }
+]
+
+
+class Player(BasePlayer):
+    answer1 = models.IntegerField(
+        label=questions[0]['text'],
+        widget=CurrencyInput
+    )
+    answer2 = models.IntegerField(
+        label=questions[1]['text'],
+    )
+    answer3 = models.IntegerField(
+        label=questions[2]['text'],
+        widget=CurrencyInput
+    )
+    answer4 = models.IntegerField(
+        label=questions[3]['text'],
+        widget=CurrencyInput
+    )
+    answer5 = models.IntegerField(
+        label=questions[4]['text'],
+        widget=CurrencyInput
+    )
+    answer6 = models.IntegerField(
+        label=questions[5]['text'],
         choices=[
             [1, "More than today"],
             [2, "Exactly the same as today"],
@@ -98,9 +132,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     answer7 = models.IntegerField(
-        label="Suppose that in the year 2030, your income has doubled and "
-              "prices of all goods have doubled too. In 2030, "
-              "how much will you be able to buy with your income? ",
+        label=questions[6]['text'],
         choices=[
             [1, "More than today"],
             [2, "Exactly the same as today"],
@@ -108,6 +140,12 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect
     )
+
+    def get_answers(self):
+        """Return the answers as a list"""
+        return [self.answer1, self.answer2, self.answer3, self.answer4,
+                self.answer5, self.answer6, self.answer7]
+
 
     def process_answers(self):
         if self.answer1 == 150:
