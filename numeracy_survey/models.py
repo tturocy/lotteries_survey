@@ -124,3 +124,7 @@ class Player(BasePlayer):
             self.participant.payoff += c(0.5)
         if self.answer7 == 2:
             self.participant.payoff += c(0.5)
+
+
+
+

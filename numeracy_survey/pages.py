@@ -52,7 +52,7 @@ class ResultsWaitPage(WaitPage):
     pass
 
 
-class Results(Page):
+class ResultsPage(Page):
     pass
 
 
@@ -65,5 +65,5 @@ page_sequence = [
     NumeracyPage6,
     NumeracyPage7,
     ResultsWaitPage,
-    Results
+    ResultsPage
 ]
