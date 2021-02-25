@@ -4,6 +4,10 @@ from .models import Constants
 from .models import questions
 
 
+class Instructions(Page):
+    pass
+
+
 class NumeracyPage1(Page):
     template_name = "numeracy_survey/GeneralNumeracy.html"
     form_model = 'player'

@@ -11,6 +11,7 @@ from otree.api import (
     currency_range,
 )
 
+
 author = 'Prachi Hejib'
 
 doc = "Lotteries_survey"
@@ -162,7 +163,3 @@ class Player(BasePlayer):
             self.participant.payoff += c(0.5)
         if self.answer7 == 2:
             self.participant.payoff += c(0.5)
-
-
-
-
