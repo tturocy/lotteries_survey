@@ -2,22 +2,18 @@
 {% load otree static %}
 
 {% block title %}
-Survey
+Results of Part 2
 {% endblock %}
 
 {% block content %}
     <div class="container">
-        <div class="p-2 row justify-content-center text-white rounded"
-             style="background-color: #deb8ff;">
-            <h3 class="center">Summary of your decisions</h3>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-8">
+    <div class="row justify-content-center">
+            <div class="col-12">
 
     <table class="table table-sm" style="{width: 50%;}">
             <thead class="thead-light">
                 <tr>
-                    <th class="text-center">Question</th>
+                    <th class="text-center w-50">Question</th>
                     <th class="text-center">Your Answer</th>
                     <th class="text-center">Correct Answer</th>
                     <th class="text-center">Earnings</th>
@@ -37,7 +33,7 @@ Survey
             </div></div>
         <div class="container border bg-light p-2 mt-2 mb-2">
             <div class="row justify-content-center">
-                Your earnings for this round are {{ participant.payoff }}
+                Your earnings for Part 2 are {{ participant.payoff }}
             </div>
         </div>
 
