@@ -113,6 +113,10 @@ class Player(BasePlayer):
     # Dice rolls are determined at subsession initialisation
     roll = models.IntegerField()
 
+    def error_message(self, value):
+        print(value)
+        print(type(value))
+
     def get_menu(self):
         return self.participant.vars['menu_seq'].get_menu(self.round_number)
 

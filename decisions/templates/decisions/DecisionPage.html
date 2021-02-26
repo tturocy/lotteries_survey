@@ -1,18 +1,20 @@
 {% extends "global/Page.html" %}
 {% load otree %}
 
+{% block title %}
+Choice {{ player.round_number }} of {{ Constants.num_rounds }}
+{% endblock %}
+
 {% block content %}
     <div class="container">
-        <div class="p-2 row justify-content-center text-white rounded"
-             style="background-color: #deb8ff;">
-            <h3 class="center">Choice {{ player.round_number }} of {{ Constants.num_rounds }}</h3>
-        </div>
 
         <div class="row justify-content-center text-muted font-weight-light font-italic">
             Click on the lottery which you prefer.
         </div>
 
-        <table class="table table-sm" style="{width: 50%;}">
+
+         <div class="btn-group-toggle" data-toggle="buttons">
+       <table class="table table-sm" style="{width: 50%;}">
             <thead class="thead-light">
                 <tr>
                     <th class="text-center">Lottery</th>
@@ -31,10 +33,11 @@
         <tbody>
         {% for item in player.get_menu %}
         <tr>
-            <td><button name="lotterychoice" value="{{ forloop.counter0 }}"
-                    class="btn btn-primary btn-lg"
-                    style="background-color: #ffebb0;">
-                <img class="img-fluid" alt="lottery" src="{% static item.imagepath %}"/> </button>
+            <td>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="lotterychoice" value="{{ forloop.counter0 }}" id="{{ forloop.counter0 }}" required>
+                    <img class="img-fluid" alt="lottery" src="{% static item.imagepath %}"/>
+                </label>
             </td>
 
             {% if session.config.show_expected %}
@@ -49,8 +52,12 @@
         {% endfor %}
         </tbody>
         </table>
+         </div>
     </div>
-    {{ form.lotterychoice.errors }}
+     {{ form.lotterychoice.errors }}
 
+    <div class="row">
+        <button class="otree-btn-next btn btn-primary">Confirm decision</button>
+    </div>
 {% include "global/Footer.html" %}
 {% endblock %}

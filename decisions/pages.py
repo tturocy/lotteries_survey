@@ -20,5 +20,4 @@ class ResultsPage(Page):
 
 page_sequence = [
     DecisionPage,
-    ResultsPage,
 ]
