@@ -8,56 +8,49 @@ Choice {{ player.round_number }} of {{ Constants.num_rounds }}
 {% block content %}
     <div class="container">
 
-        <div class="row justify-content-center text-muted font-weight-light font-italic">
-            Click on the lottery which you prefer.
+        <div class="row p-3">
+            <div class="col-10 text-center">
+                Click on the lottery which you prefer.
+                Your currently selected lottery will be
+                highlighted.  When you are ready to confirm your decision,
+                click the <b>Confirm decision</b> button below.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10"></div>
+            {% if session.config.show_expected %}
+                <div class="col-1"><b>Average</b></div>
+            {% endif %}
+            {% if session.config.show_risk %}
+                <div class="col-1"><b>Riskiness</b></div>
+            {% endif %}
         </div>
 
-
-         <div class="btn-group-toggle" data-toggle="buttons">
-       <table class="table table-sm" style="{width: 50%;}">
-            <thead class="thead-light">
-                <tr>
-                    <th class="text-center">Lottery</th>
-
-                    {% if session.config.show_expected %}
-                    <th class="text-center">Average Value</th>
-                    {% endif %}
-
-                    {% if session.config.show_risk %}
-                    <th class="text-center">Riskiness</th>
-                    {% endif %}
-
-            </tr>
-            </thead>
-
-        <tbody>
         {% for item in player.get_menu %}
-        <tr>
-            <td>
-                <label class="btn btn-secondary">
+        <div class="row p-3 align-items-center">
+            <div class="col-10">
+                <div class="btn-group-toggle btn-light" data-toggle="buttons">
+                    <label class="btn">
                     <input type="radio" name="lotterychoice" value="{{ forloop.counter0 }}" id="{{ forloop.counter0 }}" required>
                     <img class="img-fluid" alt="lottery" src="{% static item.imagepath %}"/>
-                </label>
-            </td>
-
+                    </label>
+                </div>
+            </div>
             {% if session.config.show_expected %}
-            <td style="vertical-align: middle; text-align: center;">{{ item.expected }}</td>
+                <div class="col-1 text-center">{{ item.expected }}</div>
             {% endif %}
-
             {% if session.config.show_risk %}
-            <td style="vertical-align: middle; text-align: center;">{{ item.risk }}</td>
+                <div class="col-1 text-center">{{ item.risk }}</div>
             {% endif %}
-
-        </tr>
+        </div>
         {% endfor %}
-        </tbody>
-        </table>
-         </div>
-    </div>
-     {{ form.lotterychoice.errors }}
 
-    <div class="row">
-        <button class="otree-btn-next btn btn-primary">Confirm decision</button>
+        <div class="row p-3">
+            <div class="col-10 justify-content-center text-center">
+                <button class="otree-btn-next btn btn-primary btn-lg">Confirm decision</button>
+            </div>
+        </div>
     </div>
+
 {% include "global/Footer.html" %}
 {% endblock %}
