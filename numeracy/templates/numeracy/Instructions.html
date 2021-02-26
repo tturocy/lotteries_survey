@@ -1,0 +1,34 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Part 2
+{% endblock %}
+
+{% block content %}
+    <p>
+    Part 1 of the experiment is now complete, and we will now describe Part 2.
+    </p>
+    <p>
+    In Part 2, we will ask you a series of questions about some calculations that
+        arise in everyday life.
+    </p>
+    <p>
+        You will earn <span class="font-weight-bold">£0.50</span> for each question
+        you answer correctly.
+    </p>
+    <p>
+        In other words, your total earnings from Part 2 of the experiment will be
+        determined by counting up the number of questions you answer correctly in Part 2,
+        and multiplying by £0.50.
+    </p>
+    <p>
+        Click the button labeled <b>Next</b> below when you are ready to begin Part 2.
+    </p>
+
+    <div class="row justify-content-center">
+    {% next_button %}
+    </div>
+
+{% include "global/Footer.html" %}
+{% endblock %}

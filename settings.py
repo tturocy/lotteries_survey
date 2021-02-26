@@ -17,9 +17,9 @@ SESSION_CONFIGS = [
          display_name="Baseline",
          num_demo_participants=1,
          app_sequence=[
-             #'instructions',
+             'instructions',
              #'decisions',
-             'numeracy_survey',
+             #'numeracy',
              #'demographics',
              #'endpage',
          ],
@@ -33,7 +33,7 @@ SESSION_CONFIGS = [
          app_sequence=[
              'instructions',
              #'decisions',
-             #'numeracy_survey',
+             #'numeracy',
              #'demographics',
              #'endpage',
          ],
@@ -47,7 +47,7 @@ SESSION_CONFIGS = [
          app_sequence=[
              'instructions',
              #'decisions',
-             #'numeracy_survey',
+             #'numeracy',
              #'demographics',
              #'endpage',
          ],
@@ -61,7 +61,7 @@ SESSION_CONFIGS = [
          app_sequence=[
              'instructions',
              #'decisions',
-             #'numeracy_survey',
+             #'numeracy',
              #'demographics',
              #'endpage',
          ],

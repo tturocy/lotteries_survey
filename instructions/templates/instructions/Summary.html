@@ -2,23 +2,28 @@
 {% load otree %}
 
 {% block title %}
-Instructions
+Part 1: Summary
 {% endblock %}
 
 {% block content %}
 
-    <h4>
-    Summary
-    </h4>
+    <p>
+    <ul>
+    <li>You will now see 25 decision rounds.</li>
+    <li>In each round, select one of the two options.</li>
+    <li>At the end of the experiment, one of the rounds will be selected at random
+    to determine your earnings for Part 1.</li>
+    <li>Your earnings from that selected round will be determined by the option you chose,
+    and a draw of a ball from a virtual bag with balls numbered 1 through 100.</li>
+    </ul>
+    </p>
 
     <p>
-    Please select one option out of the available two in each of the 25 rounds.
-        You will be told which round is payment dependant at the end of the
-        experiment hence how much you have earned from your chosen option.
+    When you are ready to begin Part 1, click the button below.
     </p>
 
     <div class="row justify-content-center">
-    {% next_button %}
+        <button class="otree-btn-next btn btn-primary">Begin Part 1</button>
     </div>
 
 {% include "global/Footer.html" %}
