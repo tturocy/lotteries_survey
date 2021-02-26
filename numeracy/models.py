@@ -148,18 +148,12 @@ class Player(BasePlayer):
                 self.answer5, self.answer6, self.answer7]
 
 
+    def get_scores(self):
+        """Return earnings per question."""
+        return [
+            c(0.50) if q['answer'] == p else c(0.00)
+            for (p, q) in zip(self.get_answers(), questions)]
+
+
     def process_answers(self):
-        if self.answer1 == 150:
-            self.participant.payoff += c(0.5)
-        if self.answer2 == 100:
-            self.participant.payoff += c(0.5)
-        if self.answer3 == 9000:
-            self.participant.payoff += c(0.5)
-        if self.answer4 == 400000:
-            self.participant.payoff += c(0.5)
-        if self.answer5 == 242:
-            self.participant.payoff += c(0.5)
-        if self.answer6 == 3:
-            self.participant.payoff += c(0.5)
-        if self.answer7 == 2:
-            self.participant.payoff += c(0.5)
+        self.participant.payoff += sum(self.get_scores())
