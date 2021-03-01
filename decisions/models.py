@@ -19,7 +19,7 @@ doc = "Lotteries_survey"
 
 
 class Constants(BaseConstants):
-    name_in_url = 'ph1'
+    name_in_url = 'part1'
     players_per_group = None
     num_rounds = 2
 
