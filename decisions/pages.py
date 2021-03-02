@@ -11,13 +11,6 @@ class DecisionPage(Page):
         self.player.process_decision()
 
 
-class ResultsPage(Page):
-    def vars_for_template(self):
-        return {
-            'item': self.participant.vars['choices'][self.round_number].item
-        }
-
-
 page_sequence = [
     DecisionPage,
 ]

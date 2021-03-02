@@ -2,54 +2,69 @@
 {% load otree %}
 
 {% block title %}
-Choice {{ player.round_number }} of {{ Constants.num_rounds }}
+Round {{ player.round_number }} of {{ Constants.num_rounds }}
 {% endblock %}
 
 {% block content %}
     <div class="container">
 
-        <div class="row p-3">
-            <div class="col-10 text-center">
-                Click on the lottery which you prefer.
-                Your currently selected lottery will be
-                highlighted.  When you are ready to confirm your decision,
-                click the <b>Confirm decision</b> button below.
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10"></div>
-            {% if session.config.show_expected %}
-                <div class="col-1"><b>Average</b></div>
-            {% endif %}
-            {% if session.config.show_risk %}
-                <div class="col-1"><b>Riskiness</b></div>
-            {% endif %}
-        </div>
-
-        {% for item in player.get_menu %}
-        <div class="row p-3 align-items-center">
-            <div class="col-10">
-                <div class="btn-group-toggle btn-light" data-toggle="buttons">
-                    <label class="btn">
-                    <input type="radio" name="lotterychoice" value="{{ forloop.counter0 }}" id="{{ forloop.counter0 }}" required>
-                    <img class="img-fluid" alt="lottery" src="{% static item.imagepath %}"/>
-                    </label>
-                </div>
-            </div>
-            {% if session.config.show_expected %}
-                <div class="col-1 text-center">{{ item.expected }}</div>
-            {% endif %}
-            {% if session.config.show_risk %}
-                <div class="col-1 text-center">{{ item.risk }}</div>
-            {% endif %}
-        </div>
-        {% endfor %}
-
-        <div class="row p-3">
-            <div class="col-10 justify-content-center text-center">
-                <button class="otree-btn-next btn btn-primary btn-lg">Confirm decision</button>
-            </div>
-        </div>
+        <table class="table-borderless p-3">
+            <thead>
+                <tr class="mp-5">
+                    <td class="text-center" style="width: 80%">
+                    <i class="text-muted">Click on the option which you prefer.
+                    Your currently selected option will be
+                    highlighted.  When you are ready to confirm your decision,
+                        click the <b>Confirm decision</b> button below.</i>
+                    </td>
+                <th class="text-center">
+                    {% if session.config.show_expected %}
+                        Average value
+                    {% else %}
+                        <span class="invisible">Average value</span>
+                    {% endif %}
+                </th>
+                <th class="text-center">
+                    {% if session.config.show_risk %}
+                        Riskiness
+                    {% else %}
+                        <span class="invisible">Riskiness</span>
+                    {% endif %}
+                </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in player.get_menu %}
+                    <tr class="align-items-center">
+                        <td class="p-1" style="width: 80%;">
+                            <div class="btn-group-toggle btn-light" data-toggle="buttons">
+                                <label class="btn">
+                                    <input type="radio" name="lotterychoice" value="{{ forloop.counter0 }}" id="{{ forloop.counter0 }}" required>
+                                    <img class="img-fluid" alt="lottery" src="{% static item.imagepath %}"/>
+                                 </label>
+                            </div>
+                        </td>
+                        {% if session.config.show_expected %}
+                            <td class="col-1 text-center">{{ item.expected }}</td>
+                        {% else %}
+                            <td class="col-1"></td>
+                        {% endif %}
+                        {% if session.config.show_risk %}
+                            <td class="col-1 text-center">{{ item.risk }}</td>
+                        {% else %}
+                            <td class="col-1"></td>
+                        {% endif %}
+                     </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="p-3 text-center">
+                        <button class="otree-btn-next btn btn-primary btn-lg">Confirm decision</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
 
 {% include "global/Footer.html" %}
