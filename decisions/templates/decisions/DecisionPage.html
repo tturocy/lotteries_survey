@@ -17,20 +17,31 @@ Round {{ player.round_number }} of {{ Constants.num_rounds }}
                     highlighted.  When you are ready to confirm your decision,
                         click the <b>Confirm decision</b> button below.</i>
                     </td>
-                <th class="text-center">
+                <td class="text-center">
                     {% if session.config.show_expected %}
-                        Average value
+                        <span class="ledr-tooltip"><b>Average returns</b>
+                            <span class="ledr-tooltiptext">You can think of this as the amount you would earn
+        if we were to do a large number of random draws,
+        and compute the average earnings per draw.
+        Remember however that your earnings from the option
+        you choose will be determined by a single draw only.</span>
+                        </span>
                     {% else %}
-                        <span class="invisible">Average value</span>
+                        <span class="invisible">Average returns</span>
                     {% endif %}
-                </th>
-                <th class="text-center">
+                </td>
+                <td class="text-center">
                     {% if session.config.show_risk %}
-                        Riskiness
+                        <span class="ledr-tooltip"><b>Risk</b>
+                            <span class="ledr-tooltiptext">This shows the standard deviation, which is a measure
+        of how spread out the earnings are.  The earnings from
+        an option with a higher standard deviation are more variable
+        than the earnings from an option with a lower standard deviation..</span>
+                        </span>
                     {% else %}
-                        <span class="invisible">Riskiness</span>
+                        <span class="invisible">Risk</span>
                     {% endif %}
-                </th>
+                </td>
                 </tr>
             </thead>
             <tbody>
