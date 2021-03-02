@@ -70,12 +70,18 @@ class ResultsWaitPage(WaitPage):
 
 class ResultsPage(Page):
     def vars_for_template(self):
+        def lookup_answer(q, answer):
+            if 'choices' in q:
+                return {k: v for (k, v) in q['choices']}[answer]
+            else:
+                return answer
+
         return {
             'questions': [
                 {
                     'text': q['text'],
-                    'correct': q['answer'],
-                    'answer': p,
+                    'correct': lookup_answer(q, q['answer']),
+                    'answer': lookup_answer(q, p),
                     'earnings': s
                 }
                 for (p, q, s) in zip(self.player.get_answers(),
