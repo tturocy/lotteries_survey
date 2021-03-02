@@ -37,39 +37,25 @@ class MenuItem:
 
 
 class MenuSequence:
-    def __init__(self, session, menu_seq, parity):
+    def __init__(self, session, player):
         self.session = session
-        self.sequence = {period: menu
-                         for (period, (menu,)) in menu_seq.iterrows()}
-        self.parity = parity
+        rnd = random.Random(self.session.config['first_seed'] + player)
+        menus = rnd.sample(range(1, 26), 25)
+        self.sequence = {period + 1: menu
+                         for (period, menu) in enumerate(menus)}
+        self.order = {period: rnd.sample(['p', 'q'], 2)
+                       for period in self.sequence.keys()}
 
     def get_menu(self, round_number):
-        menu_number = self.get_menu_number(round_number)
-        if round_number % 2 == self.parity:
-            return [
-                MenuItem(
-                    f"decisions/lottery_p{menu_number}.jpg",
-                    self.session.vars['lotteries'].loc[f"p{menu_number}"]
-                ),
-                MenuItem(
-                    f"decisions/lottery_q{menu_number}.jpg",
-                    self.session.vars['lotteries'].loc[f"q{menu_number}"]
-                )
-            ]
-        else:
-            return [
-                MenuItem(
-                    f"decisions/lottery_q{menu_number}.jpg",
-                    self.session.vars['lotteries'].loc[f"q{menu_number}"]
-                ),
-                MenuItem(
-                    f"decisions/lottery_p{menu_number}.jpg",
-                    self.session.vars['lotteries'].loc[f"p{menu_number}"]
-                )
-            ]
-
-    def get_menu_number(self, round_number):
-        return self.sequence[round_number]
+        menu_number = self.sequence[round_number]
+        order = self.order[round_number]
+        return [
+            MenuItem(
+                f"decisions/lottery_{lottery_name}{menu_number}.jpg",
+                self.session.vars['lotteries'].loc[f"p{menu_number}"]
+            )
+            for lottery_name in order
+        ]
 
 
 class Subsession(BaseSubsession):
@@ -81,15 +67,9 @@ class Subsession(BaseSubsession):
                 .transpose()
             )
         if self.round_number == 1:
-            orderings = (
-                pd.read_csv("decisions/orderings.csv",
-                            index_col='period')
-            )
-            for (menu_seq, player) in enumerate(self.get_players()):
+            for (i, player) in enumerate(self.get_players()):
                 player.participant.vars['menu_seq'] = (
-                    MenuSequence(self.session,
-                                 orderings[[str(menu_seq + 1)]],
-                                 menu_seq % 2)
+                    MenuSequence(self.session, i)
                 )
 
 

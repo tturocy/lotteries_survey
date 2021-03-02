@@ -17,14 +17,15 @@ SESSION_CONFIGS = [
          display_name="Baseline",
          num_demo_participants=1,
          app_sequence=[
-             'instructions',
-             #'decisions',
+             #'instructions',
+             'decisions',
              #'numeracy',
              #'demographics',
              #'endpage',
          ],
          show_expected=False,
          show_risk=False,
+         first_seed=1000,
      ),
      dict(
          name='treatment_e',
@@ -39,6 +40,7 @@ SESSION_CONFIGS = [
          ],
          show_expected=True,
          show_risk=False,
+         first_seed=1000,
      ),
      dict(
          name='treatment_r',
@@ -53,6 +55,7 @@ SESSION_CONFIGS = [
          ],
          show_expected=False,
          show_risk=True,
+         first_seed=1000,
      ),
      dict(
          name='treatment_er',
@@ -67,6 +70,7 @@ SESSION_CONFIGS = [
          ],
          show_expected=True,
          show_risk=True,
+         first_seed=1000,
      ),
 ]
 
