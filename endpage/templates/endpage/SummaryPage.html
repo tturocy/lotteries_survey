@@ -2,23 +2,16 @@
 {% load otree %}
 
 {% block title %}
+    Summary of your Part 1 decisions
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div class="p-2 row justify-content-center text-white rounded"
-             style="background-color: #deb8ff;">
-            <h3 class="center">Summary of your decisions</h3>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-8">
-
-        <table class="table table-sm" style="{width: 50%;}">
+        <table class="table table-sm w-100">
             <thead class="thead-light">
                 <tr>
                     <th class="text-center">Period</th>
-                    <th class="text-center">Chosen lottery</th>
-                    <th class="text-center">Roll</th>
+                    <th class="text-center w-75">Your chosen option</th>
+                    <th class="text-center">Ball</th>
                     <th class="text-center">Earnings</th>
                     <th class="text-center">Paid?</th>
                 </tr>
@@ -27,7 +20,9 @@
              {% for choice in participant.vars.choices.values %}
                  <tr>
                     <th scope="row" class="text-center align-middle">{{ forloop.counter }}</th>
-                     <td><img class="img-fluid" alt="lottery" src="{% static choice.item.imagepath %}"</td>
+                     <td class="w-75">
+                         <img class="img-fluid" alt="lottery" src="{% static choice.item.imagepath %}"/>
+                     </td>
                     <td class="align-middle text-center">{{ choice.roll }}</td>
                     <td class="align-middle text-center">{{ choice.payoff }}</td>
 
@@ -35,12 +30,12 @@
                         {% if forloop.counter == player.paid_period %}Yes{% endif %}
                     </td>
                  </tr>
-        {% endfor %}
+            {% endfor %}
             </tbody>
         </table>
-       </div></div>
+
        <div class="row p-3 justify-content-center">
-            Your earnings for today's experiment are {{ participant.payoff }}.
+            <b>Your earnings for today's experiment are {{ participant.payoff }}</b>.
        </div>
 
         <div class="row p-3 justify-content-center">
@@ -48,7 +43,6 @@
                 Proceed to next page
             </button>
         </div>
-     </div>
 
 {% include "global/Footer.html" %}
 {% endblock %}

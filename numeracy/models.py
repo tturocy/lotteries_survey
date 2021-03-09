@@ -90,7 +90,12 @@ questions = [
             "After 1 year, how much would you be able to buy with the money "
             "in this account?"
         ),
-        'answer': 3
+        'choices': [
+            [1, "More than today"],
+            [2, "Exactly the same as today"],
+            [3, "Less than today"],
+        ],
+        'answer': 3,
     },
     {
         'text': (
@@ -98,7 +103,12 @@ questions = [
             "prices of all goods have doubled too. In 2030, "
             "how much will you be able to buy with your income?"
         ),
-        'answer': 2
+        'choices': [
+            [1, "More than today"],
+            [2, "Exactly the same as today"],
+            [3, "Less than today"],
+        ],
+        'answer': 2,
     }
 ]
 
@@ -125,20 +135,12 @@ class Player(BasePlayer):
     )
     answer6 = models.IntegerField(
         label=questions[5]['text'],
-        choices=[
-            [1, "More than today"],
-            [2, "Exactly the same as today"],
-            [3, "Less than today"],
-        ],
+        choices=questions[5]['choices'],
         widget=widgets.RadioSelect
     )
     answer7 = models.IntegerField(
         label=questions[6]['text'],
-        choices=[
-            [1, "More than today"],
-            [2, "Exactly the same as today"],
-            [3, "Less than today"],
-        ],
+        choices=questions[6]['choices'],
         widget=widgets.RadioSelect
     )
 
