@@ -11,12 +11,7 @@ class SummaryPage(Page):
     pass
 
 
-class EndPage(Page):
-    pass
-
-
 page_sequence = [
     RealisePage,
     SummaryPage,
-    EndPage,
 ]
