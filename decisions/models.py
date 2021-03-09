@@ -47,15 +47,21 @@ class MenuSequence:
                        for period in self.sequence.keys()}
 
     def get_menu(self, round_number):
-        menu_number = self.sequence[round_number]
+        menu_number = self.get_menu_number(round_number)
         order = self.order[round_number]
         return [
             MenuItem(
                 f"decisions/lottery_{lottery_name}{menu_number}.jpg",
-                self.session.vars['lotteries'].loc[f"p{menu_number}"]
+                self.session.vars['lotteries'].loc[f"{lottery_name}{menu_number}"]
             )
             for lottery_name in order
         ]
+
+    def get_menu_number(self, round_number):
+        return self.sequence[round_number]
+
+    def get_displayed_first(self, round_number):
+        return self.order[round_number][0]
 
 
 class Subsession(BaseSubsession):
@@ -89,6 +95,7 @@ class PlayerChoice:
 
 class Player(BasePlayer):
     menu_number = models.IntegerField()
+    displayed_first = models.StringField()
     lotterychoice = models.IntegerField()
     # Dice rolls are determined at subsession initialisation
     roll = models.IntegerField()
@@ -97,7 +104,10 @@ class Player(BasePlayer):
         return self.participant.vars['menu_seq'].get_menu(self.round_number)
 
     def process_decision(self):
-        self.menu_number = self.participant.vars['menu_seq'].get_menu(self.round_number)
+        self.menu_number = self.participant.vars['menu_seq'].get_menu_number(self.round_number)
+        self.displayed_first = (
+            self.participant.vars['menu_seq'].get_displayed_first(self.round_number)
+        )
         self.roll = random.randint(1, 100)
         item = self.get_menu()[self.lotterychoice]
         if 'choices' not in self.participant.vars:
