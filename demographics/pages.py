@@ -8,7 +8,7 @@ class Introduction(Page):
 
 
 class QuestionPage(Page):
-    template_name = "Demographics/GeneralDemographics.html"
+    template_name = "demographics/GeneralDemographics.html"
     form_model = 'player'
 
 
