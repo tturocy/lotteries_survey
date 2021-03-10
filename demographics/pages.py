@@ -29,11 +29,15 @@ class Page4(QuestionPage):
 
 
 class Page5(QuestionPage):
-    form_fields = ['department']
+    form_fields = ['degree']
 
 
 class Page6(QuestionPage):
-    form_fields = ['degree']
+    form_fields = ['department']
+
+    def is_displayed(self):
+        # Only display if participant responded and gave a degree course
+        return self.player.degree is not None and self.player.degree <= 5
 
 
 class Page7(QuestionPage):

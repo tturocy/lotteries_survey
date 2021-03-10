@@ -38,14 +38,10 @@ class Player(BasePlayer):
             [1, "Male"],
             [2, "Female"],
             [3, "Other"],
+            [4, "Prefer not to say"]
         ],
         widget=widgets.RadioSelect,
         blank=True,
-    )
-
-    genderother = models.StringField(
-        label="If other please specify:",
-        blank = True,
     )
 
     age = models.IntegerField(
@@ -65,7 +61,7 @@ class Player(BasePlayer):
     )
 
     department = models.StringField(
-        label="In which School are you currently enrolled? (For example, BIO, ECO, EDU…)",
+        label="In which School are you currently enrolled? (For example, BIO, ECO, EDU, ...)",
         blank=True,
     )
 
@@ -77,8 +73,9 @@ class Player(BasePlayer):
             [3, 'PG Diploma'],
             [4, 'Master'],
             [5, 'PhD'],
-            [6, 'Staff'],
-            [7, 'Other'],
+            [6, 'I am a member of staff'],
+            [7, 'Other degree course or affiliation'],
+            [8, 'Prefer not to say']
             ],
         widget=widgets.RadioSelect,
         blank=True,
@@ -92,6 +89,7 @@ class Player(BasePlayer):
             [3, "This is my third year"],
             [4, "This is my fourth year"],
             [5, "I have been here more than four years"],
+            [6, "Prefer not to say"]
             ],
             widget = widgets.RadioSelect,
         blank=True,
