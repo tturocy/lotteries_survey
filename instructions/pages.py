@@ -35,8 +35,28 @@ class OptionComprehension4(Page):
     form_fields = ['answer4']
 
 
+class MenuItem:
+    def __init__(self, imagepath, lottery):
+        self.imagepath = imagepath
+        self.lottery = lottery
+
+    def expected(self):
+        return f"{self.lottery.mean():.2f}"
+
+    def risk(self):
+        return f"{self.lottery.std():.2f}"
+
+
 class DecisionRounds(Page):
-    pass
+    def vars_for_template(self):
+        menu_number = 26
+        return {'menu': [
+            MenuItem(
+                f"instructions/lottery_{lottery_name}{menu_number}.jpg",
+                self.session.vars['lotteries'].loc[f"{lottery_name}{menu_number}"]
+            )
+            for lottery_name in ['p', 'q']
+        ]}
 
 
 class DeterminingEarnings(Page):

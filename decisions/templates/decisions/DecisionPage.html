@@ -8,75 +8,9 @@ Round {{ player.round_number }} of {{ Constants.num_rounds }}
 {% block content %}
     <div class="container">
 
-        <table class="table-borderless p-3">
-            <thead>
-                <tr class="mp-5">
-                    <td class="text-center" style="width: 80%">
-                    <i class="text-muted">Click on the option which you prefer.
-                    Your currently selected option will be
-                    highlighted.  When you are ready to confirm your decision,
-                        click the <b>Confirm decision</b> button below.</i>
-                    </td>
-                <td class="text-center">
-                    {% if session.config.show_expected %}
-                        <span class="ledr-tooltip"><b>Average returns</b>
-                            <span class="ledr-tooltiptext">You can think of this as the amount you would earn
-        if we were to do a large number of random draws,
-        and compute the average earnings per draw.
-        Remember however that your earnings from the option
-        you choose will be determined by a single draw only.</span>
-                        </span>
-                    {% else %}
-                        <span class="invisible">Average returns</span>
-                    {% endif %}
-                </td>
-                <td class="text-center">
-                    {% if session.config.show_risk %}
-                        <span class="ledr-tooltip"><b>Risk</b>
-                            <span class="ledr-tooltiptext">This shows the standard deviation, which is a measure
-        of how spread out the earnings are.  The earnings from
-        an option with a higher standard deviation are more variable
-        than the earnings from an option with a lower standard deviation..</span>
-                        </span>
-                    {% else %}
-                        <span class="invisible">Risk</span>
-                    {% endif %}
-                </td>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in player.get_menu %}
-                    <tr class="align-items-center">
-                        <td class="p-1" style="width: 80%;">
-                            <div class="btn-group-toggle btn-light" data-toggle="buttons">
-                                <label class="btn">
-                                    <input type="radio" name="lotterychoice" value="{{ forloop.counter0 }}" id="{{ forloop.counter0 }}" required>
-                                    <img class="img-fluid" alt="lottery" src="{% static item.imagepath %}"/>
-                                 </label>
-                            </div>
-                        </td>
-                        {% if session.config.show_expected %}
-                            <td class="col-1 text-center">{{ item.expected }}</td>
-                        {% else %}
-                            <td class="col-1"></td>
-                        {% endif %}
-                        {% if session.config.show_risk %}
-                            <td class="col-1 text-center">{{ item.risk }}</td>
-                        {% else %}
-                            <td class="col-1"></td>
-                        {% endif %}
-                     </tr>
-                {% endfor %}
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td class="p-3 text-center">
-                        <button class="otree-btn-next btn btn-primary btn-lg">Confirm decision</button>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+    {% include "global/DecisionTableau.html" %}
+
+   </div>
 
 {% include "global/Footer.html" %}
 {% endblock %}
