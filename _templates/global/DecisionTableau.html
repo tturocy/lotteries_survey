@@ -69,6 +69,7 @@
         </tr>
     {% endfor %}
     </tbody>
+    {% if is_live %}
     <tfoot>
     <tr>
         <td class="p-3 text-center">
@@ -76,4 +77,5 @@
         </td>
     </tr>
     </tfoot>
+    {% endif %}
 </table>

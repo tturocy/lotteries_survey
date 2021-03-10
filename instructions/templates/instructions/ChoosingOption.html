@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Part 1: Choosing an option
+{% endblock %}
+
+{% block content %}
+
+
+   <p>
+        To select the option you prefer, click on the picture of the corresponding
+        horizontal bar.  When you do, that option will be highlighted on your
+        screen.  If you change your mind, you can click the other option instead;
+        that option will then be highlighted.  You can revise your choice as often
+        as you would like.  When you are satisfied with your choice, click the
+        button labeled <b>Confirm decision</b>, which will record your decision and
+        move you to the next decision round.
+    </p>
+
+    <p>
+        Use the display above to practice selecting options by clicking on them.
+        When you are ready to move to the next instruction screen, click on the
+        <b>Confirm decision</b> button.
+    </p>
+
+    <div class="container p-2 mb-2 border">
+        {% include "global/DecisionTableau.html" %}
+    </div>
+
+{% include "global/Footer.html" %}
+{% endblock %}

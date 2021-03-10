@@ -47,16 +47,27 @@ class MenuItem:
         return f"{self.lottery.std():.2f}"
 
 
-class DecisionRounds(Page):
+class DecisionExample(Page):
     def vars_for_template(self):
         menu_number = 26
-        return {'menu': [
-            MenuItem(
-                f"instructions/lottery_{lottery_name}{menu_number}.jpg",
-                self.session.vars['lotteries'].loc[f"{lottery_name}{menu_number}"]
-            )
-            for lottery_name in ['p', 'q']
-        ]}
+        return {
+            'menu': [
+                MenuItem(
+                    f"instructions/lottery_{lottery_name}{menu_number}.jpg",
+                    self.session.vars['lotteries'].loc[f"{lottery_name}{menu_number}"]
+                )
+                for lottery_name in ['p', 'q']
+            ],
+            'is_live': self.is_live
+        }
+
+
+class DecisionRounds(DecisionExample):
+    is_live = False
+
+
+class ChoosingOption(DecisionExample):
+    is_live = True
 
 
 class DeterminingEarnings(Page):
@@ -87,6 +98,7 @@ page_sequence = [
     OptionComprehension3,
     OptionComprehension4,
     DecisionRounds,
+    ChoosingOption,
     DeterminingEarnings,
     GeneralComprehension1,
     GeneralComprehension2,

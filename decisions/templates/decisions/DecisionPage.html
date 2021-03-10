@@ -8,7 +8,7 @@ Round {{ player.round_number }} of {{ Constants.num_rounds }}
 {% block content %}
     <div class="container">
 
-    {% include "global/DecisionTableau.html" %}
+    {% include "global/DecisionTableau.html" with is_live=True %}
 
    </div>
 
