@@ -11,7 +11,12 @@ class SummaryPage(Page):
     pass
 
 
+class EarningsPage(Page):
+    pass
+
+
 page_sequence = [
     RealisePage,
     SummaryPage,
+    EarningsPage,
 ]

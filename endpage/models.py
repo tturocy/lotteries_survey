@@ -31,7 +31,6 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     def realise_paid_period(self):
-        print("Realising paid period")
         for player in self.get_players():
             player.realise_paid_period()
 

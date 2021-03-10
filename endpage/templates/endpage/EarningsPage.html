@@ -2,7 +2,7 @@
 {% load otree %}
 
 {% block title %}
-    Summary of your Part 1 decisions
+    Your earnings from today's experiment
 {% endblock %}
 
 {% block content %}
@@ -11,26 +11,33 @@
                 <tr>
                     <th class="text-center">Period</th>
                     <th class="text-center w-75">Your chosen option</th>
-                    <th class="text-center">Selected for payment?</th>
+                    <th class="text-center">Ball</th>
+                    <th class="text-center">Earnings</th>
                 </tr>
             </thead>
             <tbody>
              {% for choice in participant.vars.choices.values %}
+                 {% if forloop.counter == player.paid_period %}
                  <tr>
                     <th scope="row" class="text-center align-middle">{{ forloop.counter }}</th>
                      <td class="w-75">
                          <img class="img-fluid" alt="lottery" src="{% static choice.item.imagepath %}"/>
                      </td>
-                    <td class="align-middle text-center">
-                        {% if forloop.counter == player.paid_period %}Yes{% endif %}
-                    </td>
+                    <td class="align-middle text-center">{{ choice.roll }}</td>
+                    <td class="align-middle text-center">{{ choice.payoff }}</td>
                  </tr>
+                 {% endif %}
             {% endfor %}
             </tbody>
         </table>
-    <div class="row justify-content-center">
-        <button class="otree-btn-next btn btn-primary btn-lg">Determine earnings for selected option</button>
-    </div>
+
+       <div class="row p-3 justify-content-center">
+            <b>Adding the above to your earnings from Part 2,
+                your total earnings for today's experiment are {{ participant.payoff }}</b>.
+       </div>
+       <div class="row p-3 justify-content-center">
+            <i>Thank you for participating!</i>
+       </div>
 
 {% include "global/Footer.html" %}
 {% endblock %}
