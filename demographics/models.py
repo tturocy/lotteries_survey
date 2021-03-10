@@ -34,7 +34,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     gender = models.IntegerField(
         label="What gender do you identify as?",
-        choices = [
+        choices=[
             [1, "Male"],
             [2, "Female"],
             [3, "Other"],
@@ -67,7 +67,7 @@ class Player(BasePlayer):
 
     degree = models.IntegerField(
         label="What type of degree course are you currently enrolled on?",
-        choices = [
+        choices=[
             [1, 'INTO'],
             [2, 'Bachelor'],
             [3, 'PG Diploma'],
@@ -76,7 +76,7 @@ class Player(BasePlayer):
             [6, 'I am a member of staff'],
             [7, 'Other degree course or affiliation'],
             [8, 'Prefer not to say']
-            ],
+        ],
         widget=widgets.RadioSelect,
         blank=True,
     )
@@ -91,6 +91,6 @@ class Player(BasePlayer):
             [5, "I have been here more than four years"],
             [6, "Prefer not to say"]
             ],
-            widget = widgets.RadioSelect,
+        widget=widgets.RadioSelect,
         blank=True,
     )

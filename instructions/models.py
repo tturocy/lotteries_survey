@@ -44,6 +44,7 @@ class CurrencyInput(django.forms.widgets.NumberInput):
             '</div>'
         )
 
+
 class Player(BasePlayer):
     answer1 = models.IntegerField(
         label="How much would you earn if ball number 38 was drawn?",
@@ -55,12 +56,12 @@ class Player(BasePlayer):
     )
     answer3 = models.IntegerField(
         label="Which ball is more likely to be drawn, ball number 4 or ball number 27?",
-        choices = [
+        choices=[
             [1, "Ball number 4 is more likely"],
             [2, "Ball number 27 is more likely"],
             [3, "Ball number 4 and ball number 27 are equally likely"],
         ],
-        widget = widgets.RadioSelect
+        widget=widgets.RadioSelect
     )
     answer4 = models.IntegerField(
         label="Of the 100 balls, how many of them would result in you earning £10 if drawn?"
@@ -70,15 +71,16 @@ class Player(BasePlayer):
     )
     answer9 = models.IntegerField(
         label="How likely is it that a given round will be selected for payment?",
-        choices = [
+        choices=[
             [1, "A round with a higher ball drawn is more likely to be selected"],
             [2, "Later rounds are more likely to be selected"],
             [3, "All rounds are equally likely to be selected"]
         ],
-        widget = widgets.RadioSelect
+        widget=widgets.RadioSelect
     )
 
-    def answer1_error_message(self, answer):
+    @staticmethod
+    def answer1_error_message(answer):
         if answer != 10:
             return [
                 f"Your earnings in this case would not be £{answer}.",
@@ -87,7 +89,8 @@ class Player(BasePlayer):
                 "in which the number 38 falls."
             ]
 
-    def answer2_error_message(self, answer):
+    @staticmethod
+    def answer2_error_message(answer):
         if answer != 20:
             return (
                 f"Your earnings in this case would not be £{answer}. "
@@ -96,16 +99,16 @@ class Player(BasePlayer):
                 "which includes the range between 61 and 100."
             )
 
-
-    def answer3_error_message(self, answer):
+    @staticmethod
+    def answer3_error_message(answer):
         if answer != 3:
             return [
                 "Remember that the selected ball will be drawn as if from "
                 "a bag containing balls with all numbers from 1 to 100 inclusive."
             ]
 
-
-    def answer4_error_message(self, answer):
+    @staticmethod
+    def answer4_error_message(answer):
         if answer != 25:
             return [
                 f"The number of balls resulting in earnings of £10 is not {answer}.",
@@ -114,15 +117,15 @@ class Player(BasePlayer):
                 "correspond to earnings of £10."
             ]
 
-
-    def answer8_error_message(self, answer):
+    @staticmethod
+    def answer8_error_message(answer):
         if answer != 1:
             return [
                 "One of the 25 rounds will be selected for payment."
             ]
 
-
-    def answer9_error_message(self, answer):
+    @staticmethod
+    def answer9_error_message(answer):
         if answer != 3:
             return [
                 "Which round will be selected for payment does not depend on "

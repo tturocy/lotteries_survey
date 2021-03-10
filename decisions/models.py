@@ -44,7 +44,7 @@ class MenuSequence:
         self.sequence = {period + 1: menu
                          for (period, menu) in enumerate(menus)}
         self.order = {period: rnd.sample(['p', 'q'], 2)
-                       for period in self.sequence.keys()}
+                      for period in self.sequence.keys()}
 
     def get_menu(self, round_number):
         menu_number = self.get_menu_number(round_number)
@@ -101,7 +101,8 @@ class Player(BasePlayer):
     # Dice rolls are determined at subsession initialisation
     roll = models.IntegerField()
 
-    def lotterychoice_error_message(self, value):
+    @staticmethod
+    def lotterychoice_error_message(value):
         if value is None:
             return [
                 "Select one of the options by clicking on the image of the bar.",

@@ -23,7 +23,7 @@ Part 1: Introduction
     <p>
         In each round, you will make a choice of one out of two <strong>options</strong>.
         A typical option will look like the sample one below:
-    <img class="img-fluid" src="{% static "instructions/lottery_p26.jpg" %}"/>
+    <img class="img-fluid" alt="choice" src="{% static "instructions/lottery_p26.jpg" %}"/>
     </p>
 
     <p>
@@ -39,12 +39,13 @@ Part 1: Introduction
     The horizontal bar tells you how your earnings depend on which ball is drawn.  Across the
     bottom of the bar are numbers which label the ranges of ball numbers which correspond to
     each potential earnings amount:
-        <ul>
-            <li>If the ball drawn has a number between 61 and 100, you would earn <b>£20</b>;
-            <li>If the ball drawn has a number between 36 and 60, you would earn <b>£10</b>;
-            <li>If the ball drawn has a number between 1 and 35, you would earn <b>£0</b>.
-        </ul>
     </p>
+        <ul>
+            <li>If the ball drawn has a number between 61 and 100, you would earn <b>£20</b>;</li>
+            <li>If the ball drawn has a number between 36 and 60, you would earn <b>£10</b>;</li>
+            <li>If the ball drawn has a number between 1 and 35, you would earn <b>£0</b>.</li>
+        </ul>
+
 
     <div class="row justify-content-center">
     {% next_button %}

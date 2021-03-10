@@ -8,7 +8,7 @@ from otree.api import (
     BaseGroup,
     BasePlayer,
     Currency as c,
-    currency_range,
+    # currency_range,
 )
 
 
@@ -43,6 +43,7 @@ class CurrencyInput(django.forms.widgets.NumberInput):
             f'{super().render(*args, **kwargs)}'
             '</div>'
         )
+
 
 questions = [
     {
@@ -149,13 +150,11 @@ class Player(BasePlayer):
         return [self.answer1, self.answer2, self.answer3, self.answer4,
                 self.answer5, self.answer6, self.answer7]
 
-
     def get_scores(self):
         """Return earnings per question."""
         return [
             c(1.00) if q['answer'] == p else c(0.00)
             for (p, q) in zip(self.get_answers(), questions)]
-
 
     def process_answers(self):
         self.participant.payoff += sum(self.get_scores())

@@ -1,6 +1,6 @@
-from otree.api import Currency as c, currency_range
-from ._builtin import Page, WaitPage
-from .models import Constants
+# from otree.api import Currency as c, currency_range
+from ._builtin import Page  # , WaitPage
+# from .models import Constants
 
 
 class Welcome(Page):
@@ -48,6 +48,8 @@ class MenuItem:
 
 
 class DecisionExample(Page):
+    is_live = False
+
     def vars_for_template(self):
         menu_number = 26
         return {
