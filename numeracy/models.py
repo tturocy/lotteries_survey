@@ -153,7 +153,7 @@ class Player(BasePlayer):
     def get_scores(self):
         """Return earnings per question."""
         return [
-            c(0.50) if q['answer'] == p else c(0.00)
+            c(1.00) if q['answer'] == p else c(0.00)
             for (p, q) in zip(self.get_answers(), questions)]
 
 
