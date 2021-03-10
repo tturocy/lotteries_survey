@@ -96,9 +96,17 @@ class PlayerChoice:
 class Player(BasePlayer):
     menu_number = models.IntegerField()
     displayed_first = models.StringField()
-    lotterychoice = models.IntegerField()
+    # We enforce non-nullness of final lottery response in validation below
+    lotterychoice = models.IntegerField(blank=True)
     # Dice rolls are determined at subsession initialisation
     roll = models.IntegerField()
+
+    def lotterychoice_error_message(self, value):
+        if value is None:
+            return [
+                "Select one of the options by clicking on the image of the bar.",
+                "When an option is selected, it will be highlighted with a border."
+            ]
 
     def get_menu(self):
         return self.participant.vars['menu_seq'].get_menu(self.round_number)
