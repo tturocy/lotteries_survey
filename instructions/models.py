@@ -14,8 +14,7 @@ from otree.api import (
 
 author = 'Prachi Hejib'
 
-doc = "Lotteries_survey"
-"Investment decisions modelled as lottery choices"
+doc = "Instructions for guidance in investment decisions"
 
 
 class Constants(BaseConstants):

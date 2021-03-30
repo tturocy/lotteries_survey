@@ -14,14 +14,13 @@ import pandas as pd
 
 author = 'Prachi Hejib'
 
-doc = "Lotteries_survey"
-"Investment decisions modelled as lottery choices"
+doc = "Decision rounds for investment guidance"
 
 
 class Constants(BaseConstants):
     name_in_url = 'part1'
     players_per_group = None
-    num_rounds = 2
+    num_rounds = 25
 
 
 class MenuItem:
