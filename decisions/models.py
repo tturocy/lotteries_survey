@@ -19,7 +19,7 @@ doc = "Decision rounds for investment guidance"
 
 class Constants(BaseConstants):
     name_in_url = 'part1'
-    players_per_group = None
+    players_per_group = 1
     num_rounds = 25
 
 

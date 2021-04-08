@@ -21,7 +21,7 @@ Summary page for payments
 
 class Constants(BaseConstants):
     name_in_url = 'endpage'
-    players_per_group = None
+    players_per_group = 1
     num_rounds = 1
 
 

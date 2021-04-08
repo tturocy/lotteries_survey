@@ -19,7 +19,7 @@ Demographics Survey
 
 class Constants(BaseConstants):
     name_in_url = 'aboutyou'
-    players_per_group = None
+    players_per_group = 1
     num_rounds = 1
 
 

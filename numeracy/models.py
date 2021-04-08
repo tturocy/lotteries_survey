@@ -19,7 +19,7 @@ doc = "Numeracy inventory"
 
 class Constants(BaseConstants):
     name_in_url = 'survey'
-    players_per_group = None
+    players_per_group = 1
     num_rounds = 1
 
 
