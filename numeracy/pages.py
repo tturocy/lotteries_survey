@@ -64,10 +64,6 @@ class Question7(QuestionPage):
         self.player.process_answers()
 
 
-class ResultsWaitPage(WaitPage):
-    pass
-
-
 class ResultsPage(Page):
     def vars_for_template(self):
         def lookup_answer(q, answer):
@@ -100,6 +96,5 @@ page_sequence = [
     Question5,
     Question6,
     Question7,
-    ResultsWaitPage,
     ResultsPage
 ]

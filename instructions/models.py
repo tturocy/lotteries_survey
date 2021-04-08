@@ -19,7 +19,7 @@ doc = "Instructions for guidance in investment decisions"
 
 class Constants(BaseConstants):
     name_in_url = 'instructions'
-    players_per_group = 1
+    players_per_group = None
     num_rounds = 1
 
 
