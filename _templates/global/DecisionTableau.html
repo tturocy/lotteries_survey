@@ -68,7 +68,7 @@
             {% endif %}
         </tr>
     {% endfor %}
-    {% if form.lotterychoice.errors %}
+    {% if form.lotterychoice.errors|default:None %}
     <tr>
         <td class="text-center">
         <span class="text-danger"><em>
