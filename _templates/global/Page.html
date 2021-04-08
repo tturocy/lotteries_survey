@@ -49,6 +49,21 @@
   visibility: visible;
 }
 
+.mx-button input {
+    display: none;
+}
+
+.mx-button label {
+    background-color: #ccc;
+    border: 1px solid #888;
+    color: #666;
+    padding: 5px 10px;
+}
+
+.mx-button input:checked + label {
+    background-color: green;
+}
+
 </style>
 {% endblock %}
 

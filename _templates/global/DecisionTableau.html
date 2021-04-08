@@ -48,10 +48,10 @@
     {% for item in menu %}
         <tr class="align-items-center">
             <td class="p-1" style="width: 80%;">
-                <div class="btn-group-toggle btn-light" data-toggle="buttons">
-                    <label class="btn">
-                        <input type="radio" name="lotterychoice" value="{{ forloop.counter0 }}"
+                <div class="mx-button">
+                    <input type="radio" name="lotterychoice" value="{{ forloop.counter0 }}"
                                id="{{ forloop.counter0 }}">
+                    <label for="{{ forloop.counter0 }}" unselectable>
                         <img class="img-fluid" alt="lottery" src="{% static item.imagepath %}"/>
                     </label>
                 </div>
