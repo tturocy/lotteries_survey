@@ -8,8 +8,8 @@ Part 1: A typical decision round
 {% block content %}
 
     <p>
-    In each decision round, you will have a choice between two options.
-    Here is an example of how a typical decision round will look:
+    Here is an example of how a typical decision round will look,
+    showing the two available options:
     </p>
 
     <div class="container p-2 mb-2 border">
@@ -18,62 +18,50 @@ Part 1: A typical decision round
 
     {% if session.config.show_expected and session.config.show_risk %}
     <p>
-    To the right of each horizontal bar are two columns.
+    To the right of each option are two numbers.
     </p>
     <p>
-        The first column is labelled <b>Average returns</b>.
+        The first number is labelled <b>Average returns</b>.
         You can think of this as the amount you would earn
         if we were to do a large number of random draws,
         and compute the average earnings per draw.
         Remember however that your earnings from the option
-        you choose will be determined by a single draw only.
-    </p>
-    <p>
-        The second column is labelled <b>Risk</b>.
-        This shows the standard deviation, which is a measure
-        of how spread out the earnings are.  The earnings from
-        an option with a higher standard deviation are more variable
-        than the earnings from an option with a lower standard deviation.
-    </p>
-        <p>
-            If you wish to refer to these definitions while making your decisions,
-            the <b>Average returns</b> and <b>Risk</b> labels have popups which
-            display when your mouse pointer is over them.  Try it out now to see how this
-            works.
-        </p>
-    {% elif session.config.show_expected %}
-    <p>
-    To the right of the horizontal bar showing the amounts you would earn
-        for each possible draw is a column labelled <b>Average returns</b>.
-        You can think of this as the amount you would earn if we were
-        to do a large number of random draws, and compute the average earnings per draw.
-        Remember however that your earnings from the option you choose
         will be determined by a single draw only.
     </p>
-        <p>
-            If you wish to refer to this definition while making your decisions,
-            the <b>Average returns</b> label has a popup which
-            displays when your mouse pointer is over it.  Try it out now to see how this
-            works.
-        </p>
-    {% elif session.config.show_risk %}
     <p>
-    To the right of the horizontal bar showing the amounts you would
-        earn for each possible draw is a column labelled <b>Risk</b>.
-        This shows the standard deviation, which is a measure
+        The second number is labelled <b>Variability</b>.
+        This is the standard deviation, which is a measure
         of how spread out the earnings are.  The earnings from an
         option with a higher standard deviation are more variable
         than the earnings from an option with a lower standard deviation.
-        This shows the standard deviation, which is a measure of how
-        spread out the earnings are.  The earnings from an option with
-        a higher standard deviation are more variable than the earnings
-        from an option with a lower standard deviation.
     </p>
         <p>
-            If you wish to refer to this definition while making your decisions,
-            the <b>Risk</b> label has a popup which
-            displays when your mouse pointer is over it.  Try it out now to see how this
-            works.
+            You can review these definitions during the experiment by clicking on
+            or hovering over the <b>Average returns</b> and <b>Variability</b> labels.
+        </p>
+    {% elif session.config.show_expected %}
+    <p>
+    To the right of each option is a number labelled <b>Average returns</b>.
+        You can think of this as the amount you would earn if we were
+        to do a large number of random draws, and compute the average earnings per draw.
+        Remember however that your earnings from the option
+        will be determined by a single draw only.
+    </p>
+        <p>
+            You can review this definition during the experiment by clicking on
+            or hovering over the <b>Average returns</b> label.
+        </p>
+    {% elif session.config.show_risk %}
+    <p>
+    To the right of each option is a number labelled <b>Variability</b>.
+        This is the standard deviation, which is a measure
+        of how spread out the earnings are.  The earnings from an
+        option with a higher standard deviation are more variable
+        than the earnings from an option with a lower standard deviation.
+    </p>
+        <p>
+            You can review this definition during the experiment by clicking on
+            or hovering over the <b>Variability</b> label.
         </p>
     {% endif %}
 

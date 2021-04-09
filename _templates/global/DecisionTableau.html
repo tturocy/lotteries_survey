@@ -7,20 +7,21 @@
             <i class="text-muted">
                 Click on the option which you prefer.
                 Your currently selected option will be
-                highlighted.<br/> When you are ready to confirm your decision,
+                <span style="color: green;">highlighted</span>.<br/> When you are ready to confirm your decision,
                 click the <b>Confirm decision</b> button below.
             </i>
         </td>
         <td class="text-center">
             {% if session.config.show_expected %}
+
                 <span class="ledr-tooltip">
-                    <b>Average returns</b>
+                    <b>Average<br/> returns</b> <span class="text-info">&#9432;</span>
                     <span class="ledr-tooltiptext">
                         You can think of this as the amount you would earn
                         if we were to do a large number of random draws,
                         and compute the average earnings per draw.
                         Remember however that your earnings from the option
-                        you choose will be determined by a single draw only.
+                        will be determined by a single draw only.
                     </span>
                 </span>
             {% else %}
@@ -30,7 +31,7 @@
         <td class="text-center">
             {% if session.config.show_risk %}
                 <span class="ledr-tooltip">
-                    <b>Risk</b>
+                    <b>Variability</b> <span class="text-info">&#9432;</span>
                     <span class="ledr-tooltiptext">
                         This shows the standard deviation, which is a measure
                         of how spread out the earnings are.  The earnings from

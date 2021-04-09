@@ -21,36 +21,32 @@ Part 1: Introduction
     </h4>
 
     <p>
-        In each round, you will make a choice of one out of two <strong>options</strong>.
-        The amount you will earn from choosing an option will depend on the outcome
-        of a random draw.
+        In each round, you will choose one out of two <strong>options</strong>.
     </p>
     <p>
-        There is a virtual bag containing one hundred (100) balls, numbered 1
-        through 100 inclusive.
-        The random draw consists of picking one ball at random from this bag.
-        Each ball is equally likely to be chosen.
+        Your earnings in a round depend on the option you choose,
+        and a random draw.
+        You can think of this as a draw from a virtual bag
+        containing balls numbered 1 to 100, where each ball is equally likely to be drawn.
     </p>
     <p>
-        The way in which your earnings depend on the draw of the ball will
-        differ for each option.  Here is a sample option:
+        Each option has a bar, which
+        shows how the earnings from that option depend on the draw.
+        Here is a typical option:
     <img class="img-fluid" alt="choice" src="{% static "instructions/lottery_p26.jpg" %}"/>
     </p>
 
-
     <p>
-    This horizontal bar tells you how your earnings from the option
-        will depend on which ball is drawn.
-        Across the
-    bottom of the bar are numbers which label the ranges of ball numbers which correspond to
-    each potential earnings amount:
+        The top of the bar gives the number of balls which correspond to
+        each potential earnings amount.
+       The bottom shows the ranges of corresponding ball numbers.
     </p>
-        <ul>
-            <li>If the ball drawn has a number between 61 and 100, you would earn <b>£20</b>;</li>
-            <li>If the ball drawn has a number between 36 and 60, you would earn <b>£10</b>;</li>
-            <li>If the ball drawn has a number between 1 and 35, you would earn <b>£0</b>.</li>
-        </ul>
-
+    <p>For this option, of the 100 balls,</p>
+    <ul>
+        <li>35 balls (numbered 1 to 35) would result in earnings of <b>£0</b>;</li>
+        <li>25 balls (numbered 36 to 60) would result in earnings of <b>£10</b>;</li>
+        <li>40 balls (numbered 61 to 100) would result in earnings of <b>£20</b>.</li>
+    </ul>
 
     <div class="row justify-content-center">
     {% next_button %}

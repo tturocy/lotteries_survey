@@ -104,8 +104,7 @@ class Player(BasePlayer):
     def lotterychoice_error_message(value):
         if value is None:
             return [
-                "Select one of the options by clicking on the image of the bar.",
-                "When an option is selected, it will be highlighted with a border."
+                "Please select one of the options by clicking on its bar."
             ]
 
     def get_menu(self):

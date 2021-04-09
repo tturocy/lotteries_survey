@@ -54,16 +54,16 @@ class Player(BasePlayer):
         widget=CurrencyInput
     )
     answer3 = models.IntegerField(
-        label="Which ball is more likely to be drawn, ball number 4 or ball number 27?",
+        label="Which ball is more likely to be drawn, ball number 4 or ball number 72?",
         choices=[
             [1, "Ball number 4 is more likely"],
-            [2, "Ball number 27 is more likely"],
-            [3, "Ball number 4 and ball number 27 are equally likely"],
+            [2, "Ball number 72 is more likely"],
+            [3, "Ball number 4 and ball number 72 are equally likely"],
         ],
         widget=widgets.RadioSelect
     )
     answer4 = models.IntegerField(
-        label="Of the 100 balls, how many of them would result in you earning £10 if drawn?"
+        label="How many balls out of the 100 would result in earnings of £10?"
     )
     answer8 = models.IntegerField(
         label="How many rounds will be selected for payment?"
@@ -82,38 +82,36 @@ class Player(BasePlayer):
     def answer1_error_message(answer):
         if answer != 10:
             return [
-                f"Your earnings in this case would not be £{answer}.",
-                "Please have another look at the horizontal bar, and "
-                "use the numbers along the bottom to find the segment "
-                "in which the number 38 falls."
+                "To find the answer, "
+                "use the numbers along the bottom of the bar, and find the segment "
+                "containing the number 38."
             ]
 
     @staticmethod
     def answer2_error_message(answer):
         if answer != 20:
-            return (
-                f"Your earnings in this case would not be £{answer}. "
-                "Please have another look at the horizontal bar, and "
-                "use the numbers along the bottom to find the segment "
-                "which includes the range between 61 and 100."
-            )
+            return [
+                "To find the answer, "
+                "use the numbers along the bottom of the bar, and find the segment "
+                "with the range from 61 and 100."
+            ]
 
     @staticmethod
     def answer3_error_message(answer):
         if answer != 3:
             return [
-                "Remember that the selected ball will be drawn as if from "
-                "a bag containing balls with all numbers from 1 to 100 inclusive."
+                "Remember that the selected ball will be drawn "
+                "from a virtual bag "
+                "containing balls numbered 1 to 100, where each ball is equally likely to be drawn."
             ]
 
     @staticmethod
     def answer4_error_message(answer):
         if answer != 25:
             return [
-                f"The number of balls resulting in earnings of £10 is not {answer}.",
-                "Please have another look at the horizontal bar, and "
-                "use the numbers along the top to find out how many balls "
-                "correspond to earnings of £10."
+                "To find the answer, "
+                "use the numbers along the top of the bar, and find the segment "
+                "corresponding to earnings of £10."
             ]
 
     @staticmethod
@@ -127,7 +125,8 @@ class Player(BasePlayer):
     def answer9_error_message(answer):
         if answer != 3:
             return [
-                "Which round will be selected for payment does not depend on "
-                "the option you choose, or the draw of the ball to determine the "
-                "outcome from the option."
+                "At the end of the experiment, one of the 25 decision rounds "
+                "will be selected at random to determine your earnings for "
+                "the experiment. "
+                "Each round is equally likely to be selected."
             ]
