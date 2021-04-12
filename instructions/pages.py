@@ -44,7 +44,7 @@ class MenuItem:
         return f"{self.lottery.mean():.2f}"
 
     def risk(self):
-        return f"{self.lottery.std():.2f}"
+        return f"{self.lottery.std():.1f}"
 
 
 class DecisionExample(Page):

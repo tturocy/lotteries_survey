@@ -71,7 +71,7 @@ class Player(BasePlayer):
     answer9 = models.IntegerField(
         label="How likely is it that a given round will be selected for payment?",
         choices=[
-            [1, "A round with a higher ball drawn is more likely to be selected"],
+            [1, "A round in which the number of the drawn ball is higher, is more likely to be selected"],
             [2, "Later rounds are more likely to be selected"],
             [3, "All rounds are equally likely to be selected"]
         ],

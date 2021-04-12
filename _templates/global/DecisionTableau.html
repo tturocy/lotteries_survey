@@ -31,7 +31,7 @@
         <td class="text-center align-bottom">
             {% if session.config.show_risk %}
                 <span class="ledr-tooltip">
-                    <b>Variability</b> <span class="text-info">&#9432;</span>
+                    <b>Variability score</b> <span class="text-info">&#9432;</span>
                     <span class="ledr-tooltiptext">
                         This shows the standard deviation, which is a measure
                         of how spread out the earnings are.  The earnings from
@@ -58,12 +58,12 @@
                 </div>
             </td>
             {% if session.config.show_expected %}
-                <td class="col-1 text-center">{{ item.expected }}</td>
+                <td class="col-1 text-center" style="font-size: 2rem;">£{{ item.expected }}</td>
             {% else %}
                 <td class="col-1"></td>
             {% endif %}
             {% if session.config.show_risk %}
-                <td class="col-1 text-center">{{ item.risk }}</td>
+                <td class="col-1 text-center" style="font-size: 2rem;">{{ item.risk }}</td>
             {% else %}
                 <td class="col-1"></td>
             {% endif %}
