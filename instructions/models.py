@@ -54,7 +54,7 @@ class Player(BasePlayer):
         widget=CurrencyInput
     )
     answer3 = models.IntegerField(
-        label="Which ball is more likely to be drawn, ball number 4 or ball number 72?",
+        label="When determining the earnings from this option, which ball is more likely to be drawn, ball number 4 or ball number 72?",
         choices=[
             [1, "Ball number 4 is more likely"],
             [2, "Ball number 72 is more likely"],
