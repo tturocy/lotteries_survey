@@ -56,7 +56,7 @@ class Player(BasePlayer):
 
     countrynow = models.StringField(
         label="In which country is your current permanent residence? "
-              "(If you are in the UK on a student visa, this is where 'home' is.)",
+              "(If you are in the UK on a student visa, this is the country where 'home' is.)",
         blank=True,
     )
 
