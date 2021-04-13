@@ -3,6 +3,10 @@ from ._builtin import Page  # , WaitPage
 # from .models import Constants
 
 
+class Splash(Page):
+    pass
+
+
 class Welcome(Page):
     pass
 
@@ -93,6 +97,7 @@ class Summary(Page):
 
 
 page_sequence = [
+    Splash,
     Welcome,
     Introduction,
     OptionComprehension1,

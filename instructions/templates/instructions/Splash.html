@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+    <div class="row justify-content-center p-3">
+         <h2>
+        Welcome to the Laboratory for Economic and Decision Research!
+        </h2>
+    </div>
+
+    <div class="row justify-content-center p-3">
+    <img src="{% static 'global/ueaeco.png' %}" class="align-content-center ml-3" alt="UEA logo"/>
+    </div>
+
+    <div class="row justify-content-center p-3">
+        <h2>
+        Today's experiment will begin shortly.
+        </h2>
+     </div>
+
+    {% include "global/ButtonIfDemo.html" %}
+
+{% endblock %}

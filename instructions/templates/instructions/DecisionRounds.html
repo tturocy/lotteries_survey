@@ -65,12 +65,6 @@ Part 1: A typical decision round
         </p>
     {% endif %}
 
-    {% if not is_live %}
-    <div class="row justify-content-center">
-    {% next_button %}
-    </div>
-    {% endif %}
-
-
+{% include "global/ButtonIfDemo.html" %}
 {% include "global/Footer.html" %}
 {% endblock %}
