@@ -157,3 +157,4 @@ class Player(BasePlayer):
 
     def process_answers(self):
         self.participant.payoff += sum(self.get_scores())
+        self.participant.vars['part2'] = sum(self.get_scores())

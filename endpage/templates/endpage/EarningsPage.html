@@ -11,7 +11,7 @@
                 <tr>
                     <th class="text-center">Period</th>
                     <th class="text-center w-75">Your chosen option</th>
-                    <th class="text-center">Ball</th>
+                    <th class="text-center">Ball drawn</th>
                     <th class="text-center">Earnings</th>
                 </tr>
             </thead>
@@ -23,20 +23,35 @@
                      <td class="w-75">
                          <img class="img-fluid" alt="lottery" src="{% static choice.item.imagepath %}"/>
                      </td>
-                    <td class="align-middle text-center">{{ choice.roll }}</td>
-                    <td class="align-middle text-center">{{ choice.payoff }}</td>
+                    <td class="align-middle text-center" style="font-size: 2rem;">
+                        <span style="border-radius: 50%; padding: 5px; background: #eee; border: 2px solid #000">
+                            {{ choice.roll }}
+                        </span>
+                    </td>
+                    <td class="align-middle text-center" style="font-size: 2rem;">{{ choice.payoff }}</td>
                  </tr>
                  {% endif %}
             {% endfor %}
+            <tr>
+                <td colspan="2" class="text-right" style="font-size: 2rem;">Your earnings from Part 2</td>
+                <td></td>
+                <td class="align-middle text-center" style="font-size: 2rem;">{{ participant.vars.part2 }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-right" style="font-size: 2rem;">Your total earnings for today's experiment</td>
+                <td></td>
+                <td class="align-middle text-center" style="font-size: 2rem;"><b>{{ participant.payoff }}<b></td>
+            </tr>
             </tbody>
         </table>
 
-       <div class="row p-3 justify-content-center">
-            <b>Adding the above to your earnings from Part 2,
-                your total earnings for today's experiment are {{ participant.payoff }}</b>.
-       </div>
-       <div class="row p-3 justify-content-center">
+    <hr/>
+       <div class="row p-1 justify-content-center text-info" style="font-size: 1.4rem;">
             <i>Thank you for participating!</i>
+       </div>
+       <div class="row p-1 justify-content-center text-info" style="font-size: 1.4rem;">
+            We look forward to seeing you at another
+               LEDR experiment in future.
        </div>
 
 {% include "global/Footer.html" %}

@@ -28,13 +28,18 @@ Results of Part 2
                     </tr>
                 {% endfor %}
                 </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">
+                    <b>Your earnings for Part 2 are</b>
+                </td>
+                <td class="text-center">
+                    <b>{{ participant.payoff }}</b>
+                </td>
+            </tr>
+            </tfoot>
     </table>
             </div></div>
-        <div class="container border bg-light p-2 mt-2 mb-2">
-            <div class="row justify-content-center">
-                Your earnings for Part 2 are &nbsp; <b>{{ participant.payoff }}</b>
-            </div>
-        </div>
 
     <div class="row justify-content-center">
     {% next_button %}
