@@ -2,26 +2,36 @@
 {% load otree %}
 
 {% block title %}
-Determining your Part 1 earnings
+    Your earnings from Part 1
 {% endblock %}
 
 {% block content %}
-    <p>
-    Recall that in Part 1, one of the 25 decision rounds would be selected at random.
-    A ball numbered from 1 to 100 would be drawn virtually, and we will use that
-    ball number, and the option you chose in the selected decision round, to determine
-    your earnings for Part 1.
-    </p>
-    <p>
-    On the next page, we will recap the 25 options you chose, and then determine
-    your Part 1 earnings.
-    </p>
-
-    <div class="row justify-content-center">
-    {% next_button %}
-    </div>
-
+        <table class="table table-sm w-100">
+            <thead class="thead-light">
+                <tr>
+                    <th class="text-center">Period</th>
+                    <th class="text-center w-75">Your chosen option</th>
+                    <th class="text-center">Ball drawn</th>
+                    <th class="text-center">Earnings</th>
+                </tr>
+            </thead>
+            <tbody>
+             {% for choice in participant.vars.choices.values %}
+                 {% if forloop.counter == player.paid_period %}
+                 <tr>
+                    <th scope="row" class="text-center align-middle">{{ forloop.counter }}</th>
+                     <td class="w-75">
+                         <img class="img-fluid" alt="lottery" src="{% static choice.item.imagepath %}"/>
+                     </td>
+                    <td class="align-middle text-center">
+                        <button class="otree-btn-next btn btn-primary">Draw ball</button>
+                    </td>
+                    <td class="align-middle text-center" style="font-size: 2rem;"></td>
+                 </tr>
+                 {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
 
 {% include "global/Footer.html" %}
 {% endblock %}
-

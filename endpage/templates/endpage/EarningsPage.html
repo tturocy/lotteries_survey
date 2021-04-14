@@ -33,14 +33,14 @@
                  {% endif %}
             {% endfor %}
             <tr>
-                <td colspan="2" class="text-right" style="font-size: 2rem;">Your earnings from Part 2</td>
+                <td colspan="2" class="align-middle text-right" style="font-size: 1.5rem;">Your earnings from Part 2</td>
                 <td></td>
-                <td class="align-middle text-center" style="font-size: 2rem;">{{ participant.vars.part2 }}</td>
+                <td class="align-middle text-center" style="font-size: 2rem;">{{ payoff_part2 }}</td>
             </tr>
             <tr>
-                <td colspan="2" class="text-right" style="font-size: 2rem;">Your total earnings for today's experiment</td>
+                <td colspan="2" class="align-middle text-right" style="font-size: 1.5rem;">Your total earnings from today's experiment</td>
                 <td></td>
-                <td class="align-middle text-center" style="font-size: 2rem;"><b>{{ participant.payoff }}<b></td>
+                <td class="align-middle text-center bg-success" style="font-size: 2rem;"><b>{{ participant.payoff }}<b></td>
             </tr>
             </tbody>
         </table>

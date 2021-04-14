@@ -19,7 +19,7 @@ SESSION_CONFIGS = [
          app_sequence=[
              #'instructions',
              'decisions',
-             'numeracy',
+             #'numeracy',
              #'demographics',
              'endpage',
          ],
