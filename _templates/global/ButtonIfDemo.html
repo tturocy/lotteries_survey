@@ -1,5 +1,5 @@
-{% if session.is_demo %}
+{% if session.is_demo or session.own_pace|default:False %}
     <div class="row justify-content-center">
-        <button class="otree-btn-next btn btn-outline-next">Next</button>
+        <button class="otree-btn-next btn btn-outline-primary">Next</button>
     </div>
 {% endif %}
