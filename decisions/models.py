@@ -115,7 +115,8 @@ class Player(BasePlayer):
         self.displayed_first = (
             self.participant.vars['menu_seq'].get_displayed_first(self.round_number)
         )
-        self.roll = random.randint(1, 100)
+        #self.roll = random.randint(1, 100)
+        self.roll = 7
         item = self.get_menu()[self.lotterychoice]
         if 'choices' not in self.participant.vars:
             self.participant.vars['choices'] = {}
